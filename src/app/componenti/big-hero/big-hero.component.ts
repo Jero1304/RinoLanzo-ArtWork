@@ -8,13 +8,8 @@ import { ImageService } from 'src/app/service/image.service';
 export class BigHeroComponent implements OnInit {
   constructor(private imageService: ImageService) {}
   images: any;
-  // getImage() {
-  //   console.log(this.imageService.getImage());
-  //   return (this.images = this.imageService.getImage());
-  // }
 
   ngOnInit() {
     this.images = this.imageService.getImage()
-    console.log(this.images[0].path);
   }
 }
