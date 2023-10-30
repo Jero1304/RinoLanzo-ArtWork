@@ -5,11 +5,13 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { NavbarComponent } from './componenti/navbar/navbar.component';
+import { BigHeroComponent } from './componenti/big-hero/big-hero.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    NavbarComponent
+    NavbarComponent,
+    BigHeroComponent
   ],
   imports: [
     BrowserModule,
