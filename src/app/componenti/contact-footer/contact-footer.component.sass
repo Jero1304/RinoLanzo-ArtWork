@@ -1,0 +1,33 @@
+@import '../../../styles'
+ul,ol,li
+    list-style: none
+    padding: 0
+    margin: 0
+.contact-footer
+    background-color: $brown
+    padding: 30px 20px
+
+    .contact-title
+        color: white
+        display: flex
+        justify-content: center
+        align-content: center
+        padding-bottom: 20px
+
+    .contact
+        display: flex
+        flex-direction: row
+        justify-content: space-between
+        align-items: center
+        color: white
+        li
+            padding: 10px 0
+            cursor: pointer
+    @media screen and ( max-width:771px )
+        .contact
+            display: flex
+            flex-direction: column
+            justify-content: center
+            align-items: center
+            color: white
+

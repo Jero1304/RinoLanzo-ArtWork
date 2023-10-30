@@ -6,12 +6,14 @@ import { AppComponent } from './app.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { NavbarComponent } from './componenti/navbar/navbar.component';
 import { BigHeroComponent } from './componenti/big-hero/big-hero.component';
+import { ContactFooterComponent } from './componenti/contact-footer/contact-footer.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     NavbarComponent,
-    BigHeroComponent
+    BigHeroComponent,
+    ContactFooterComponent
   ],
   imports: [
     BrowserModule,
