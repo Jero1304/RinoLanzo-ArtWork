@@ -20,11 +20,6 @@ export class ImageSliderSideComponent implements OnInit {
   startImageSlider() {
     setInterval(() => {
       this.currentIndex = (this.currentIndex + 1) % this.images.length;
-    }, 5000);
-  }
-
-  // Aggiungi un metodo per gestire il passaggio a un'immagine successiva
-  nextImage() {
-    this.currentIndex = (this.currentIndex + 1) % this.images.length;
+    }, 3000);
   }
 }

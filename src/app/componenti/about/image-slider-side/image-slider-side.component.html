@@ -1,9 +1,24 @@
 <div class="image-slider-side">
-    <div class="container">
-      <div class="image-side">
-        <ng-container *ngFor="let image of [images[currentIndex]]">
-          <img class="thumb" [src]="'../../../../assets/images/' + image.path" alt="">
+  <div class="container">
+    <div class="image-side">
+      <ng-container *ngFor="let image of [images[currentIndex]]">
+        <img
+          class="thumb"
+          [src]="'../../../../assets/images/' + image.path"
+          alt=""
+        />
+      </ng-container>
+
+      <div id="slider-two">
+        <ng-container *ngFor="let image of [images[currentIndex + 1]]">
+          <img
+            class="thumb"
+            [src]="'../../../../assets/images/' + image.path"
+            alt=""
+          />
         </ng-container>
       </div>
+      
     </div>
   </div>
+</div>

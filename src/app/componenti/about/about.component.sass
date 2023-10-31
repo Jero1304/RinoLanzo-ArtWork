@@ -2,19 +2,43 @@
 .about
     background-color: #cccccc94
     z-index: 1
+    .title-about
+        padding: 20px 0
+        display: flex
+        justify-content: center
+        .title
+            padding: 16px
+            font-size: 35px
+            text-transform: uppercase
+            color: white
+            background-color: $newRed
     .about-row
         display: flex
         flex-direction: row
         justify-content: center
         align-items: center
+        min-height: 50vh
+        padding-bottom: 30px
         .about-info
             padding: 20px
             margin: auto
             border: 2px solid white
             color: #424242
     @media screen and ( max-width:768px  )
-       .about-row
-        display: flex
-        flex-direction: column
-        justify-content: center
-        align-items: center 
+        .about-row
+            display: flex
+            flex-direction: column-reverse
+            justify-content: center
+            align-items: center
+            padding-bottom: 50px
+            gap: 60px
+            .title-about
+                padding: 20px 0
+                display: flex
+                justify-content: center
+                .title
+                    padding: 10px
+                    font-size: 20px
+                    text-transform: uppercase
+                    color: white
+                    background-color: $newRed
