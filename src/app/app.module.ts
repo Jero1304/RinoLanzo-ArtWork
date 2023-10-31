@@ -7,13 +7,17 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { NavbarComponent } from './componenti/navbar/navbar.component';
 import { BigHeroComponent } from './componenti/big-hero/big-hero.component';
 import { ContactFooterComponent } from './componenti/contact-footer/contact-footer.component';
+import { AboutComponent } from './componenti/about/about.component';
+import { ImageSliderSideComponent } from './componenti/about/image-slider-side/image-slider-side.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     NavbarComponent,
     BigHeroComponent,
-    ContactFooterComponent
+    ContactFooterComponent,
+    AboutComponent,
+    ImageSliderSideComponent
   ],
   imports: [
     BrowserModule,

@@ -7,7 +7,7 @@ export const images = [
     { path: '6.JPG' },
     { path: '7.JPG' },
     { path: '8.JPG' },
-    { path: '9.JPG' },
+    // { path: '9.JPG' },
     { path: '10.JPG' },
     { path: '11.JPG' },
     { path: '12.JPG' },
