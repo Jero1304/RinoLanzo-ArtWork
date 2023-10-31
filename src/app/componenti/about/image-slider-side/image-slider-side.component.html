@@ -1,1 +1,9 @@
-<p>image-slider-side works!</p>
+<div class="image-slider-side">
+    <div class="container">
+      <div class="image-side">
+        <ng-container *ngFor="let image of [images[currentIndex]]">
+          <img class="thumb" [src]="'../../../../assets/images/' + image.path" alt="">
+        </ng-container>
+      </div>
+    </div>
+  </div>
