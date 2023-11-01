@@ -9,6 +9,8 @@ import { BigHeroComponent } from './componenti/big-hero/big-hero.component';
 import { ContactFooterComponent } from './componenti/contact-footer/contact-footer.component';
 import { AboutComponent } from './componenti/about/about.component';
 import { ImageSliderSideComponent } from './componenti/about/image-slider-side/image-slider-side.component';
+import { CurriculumComponent } from './componenti/curriculum/curriculum.component';
+import { PortfolioComponent } from './componenti/portfolio/portfolio.component';
 
 @NgModule({
   declarations: [
@@ -17,7 +19,9 @@ import { ImageSliderSideComponent } from './componenti/about/image-slider-side/i
     BigHeroComponent,
     ContactFooterComponent,
     AboutComponent,
-    ImageSliderSideComponent
+    ImageSliderSideComponent,
+    CurriculumComponent,
+    PortfolioComponent
   ],
   imports: [
     BrowserModule,
