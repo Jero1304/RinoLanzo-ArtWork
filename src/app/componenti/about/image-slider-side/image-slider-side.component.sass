@@ -5,7 +5,7 @@
     align-items: center
     gap: 20px
     .thumb
-        width: 200px
+        width: 150px
         aspect-ratio: 2/3
         animation: slideInOut 3s ease-in-out infinite
         z-index: 0
@@ -13,7 +13,7 @@
 #slider-two
     display: none
     .thumb
-        width: 160px
+        width: 150px
         aspect-ratio: 2/3
         animation: slideInOut 3s ease-in-out infinite
         z-index: 0
@@ -36,7 +36,7 @@
 
 @media screen and (max-width: 991px)
     .thumb
-        width: 160px
+        width: 130px
         aspect-ratio: 2/3
         animation: slideInOut 3s ease-in-out infinite
         // margin-right: 40px
@@ -54,6 +54,11 @@
             padding-right: 20px
     #slider-two
         display: inline-block
+        .thumb
+            width: 160px
+            aspect-ratio: 2/3
+            animation: slideInOut 3s ease-in-out infinite
+            padding-right: 20px
     @keyframes slideInOut
         0%
             transform: translateX(-20%)
