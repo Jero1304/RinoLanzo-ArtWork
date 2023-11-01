@@ -7,7 +7,6 @@ export const images = [
     { path: '6.JPG' },
     { path: '7.JPG' },
     { path: '8.JPG' },
-    // { path: '9.JPG' },
     { path: '10.JPG' },
     { path: '11.JPG' },
     { path: '12.JPG' },
@@ -36,12 +35,10 @@ export const images = [
     { path: '35.JPG' },
     { path: '36.JPG' },
     { path: '37.JPG' },
-    { path: '38.JPG' },
-    { path: '39.JPG' },
     { path: '40.JPG' },
     { path: '41.jpg' },
-    { path: '42.jpg' },
-    { path: '43.jpg' },
+    { path: '42.JPG' },
+    { path: '43.JPG' },
     { path: '44.jpg' },
     { path: '45.jpg' },
     { path: '46.jpg' },
@@ -75,6 +72,8 @@ export const images = [
     { path: '74.jpg' },
     { path: '75.jpg' },
     { path: '76.jpg' },
-    { path: '77.jpg' }
+    { path: '77.jpg' },
+    { path: 'film.JPG' },
+    { path: 'film2.JPG' },
   ];
   

@@ -19,7 +19,11 @@ export class ImageSliderSideComponent implements OnInit {
 
   startImageSlider() {
     setInterval(() => {
+      if (this.currentIndex === this.images.length) {
+        this.currentIndex = 0
+      }
       this.currentIndex = (this.currentIndex + 1) % this.images.length;
     }, 3000);
   }
+
 }
