@@ -27,3 +27,5 @@ export class ImageSliderSideComponent implements OnInit {
   }
 
 }
+
+
