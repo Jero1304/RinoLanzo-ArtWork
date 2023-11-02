@@ -1,0 +1,86 @@
+@import '../../../styles'
+.cv
+    .cv-title
+        padding: 20px 0 40px
+        display: flex
+        justify-content: center
+        & span
+            padding: 16px
+            font-size: 35px
+            text-transform: uppercase
+            color: white
+            background-color: $newRed
+    .cv-content
+        display: flex
+        flex-direction: row
+        justify-content: center
+        align-items: center
+        padding-bottom: 30px
+        .cv-aside-content
+            height: 700px
+            padding: 0
+            display: flex
+            flex-direction: column
+            justify-content: center
+            align-items: center
+            border-right: 2px solid grey
+            .cv-aside
+                display: flex
+                flex-direction: column
+                justify-content: center
+                align-items: center
+                padding: 20px 10px
+                .cv-thumb
+                    border-image-width: 42px 42px 42px 42px
+                    border-image-slice: 42 42 42 42
+                    border-image-outset: 0px 0px 0px 0px
+                    border-image-repeat: round round
+                    border-image-source: url("https://mdn.github.io/css-examples/tools/border-image-generator/border-image-6.svg")
+                    border-style: solid
+                    border-radius: 100%
+                    max-width: 200px
+                    padding: 40px 30px
+
+                .cv-name
+                    text-align: center
+                    padding-top: 20px
+            .cv-presentation
+                padding: 20px
+                text-align: center
+                font-size: 16px
+
+        .cv-info
+            display: flex
+            flex-wrap: wrap
+            flex-direction: row
+            align-items: center
+            gap: 20px
+            padding-right: 20px
+            height: 700px
+            overflow-y: auto
+            .skill
+                padding: 20px
+                background-color: rgba(237, 230, 164, 0.7 )
+                .job-info
+                    margin-bottom: 0
+    @media screen and ( max-width: 768px )
+        .cv-content
+            display: flex
+            flex-direction: column
+            justify-content: center
+            align-items: center
+            .cv-aside-content
+                height: auto
+                margin-bottom: 20px
+                border-bottom: 2px solid grey
+                border-right: none
+                .cv-aside
+                    flex-direction: row
+                    .cv-thumb
+                        max-width: 150px
+                    .cv-name
+                        font-size: 30px
+                .cv-presentation
+                    text-align: left
+            .cv-info
+                padding-right: 0
