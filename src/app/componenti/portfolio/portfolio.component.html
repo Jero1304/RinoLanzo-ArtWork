@@ -5,20 +5,47 @@
     </div>
 
     <div class="image-slider">
-      <i id="prev-slide" (click)="previusSlide()" class="fa-regular fa-circle-left"></i>
+      <i
+        id="prev-slide"
+        (click)="previusSlide()"
+        class="fa-regular fa-circle-left"
+      ></i>
+
       <div class="chunk col-sm-9 col-lg-10">
         <div
-          class="image col-sm-4  col-md-4 col-lg-4"
-          *ngFor="let chunk of chunkedImages[currentIndex]"
+          class="image col-sm-4 col-md-4 col-lg-4"
+          *ngFor="
+            let chunk of chunkedImages[currentIndex];
+            let imageIndex = index
+          "
         >
           <img
+            *ngIf="loading === false"
             class="opera"
             [src]="'../../../assets/images/' + chunk.path"
             alt="Image"
+            (load)="(onImageLoad)"
+            (click)="currentOpera(chunk)"
           />
         </div>
+
+        <div
+          *ngIf="loading"
+          class="loader spinner-border text-secondary"
+          role="status"
+        >
+          <span class="visually-hidden">Loading...</span>
+        </div>
       </div>
-      <i id="next-slide" (click)="nextSlide()" class="fa-regular fa-circle-right"></i>
+
+      <i
+        id="next-slide"
+        (click)="nextSlide()"
+        class="fa-regular fa-circle-right"
+      ></i>
     </div>
+
+    <app-opera-dettaglio></app-opera-dettaglio>
+
   </div>
 </div>
