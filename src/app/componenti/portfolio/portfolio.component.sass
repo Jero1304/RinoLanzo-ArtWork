@@ -1,6 +1,6 @@
 @import '../../../styles'
 .portfolio
-    // min-height: 100vh
+    min-height: 100vh
     .title-portfolio
         padding: 20px 0
         display: flex
@@ -16,6 +16,8 @@
         flex-direction: row
         align-items: center
         justify-content: center
+        margin: 20px 0 30px 0
+        height: 700px
         #prev-slide,
         #next-slide
             width: 70px
@@ -32,49 +34,59 @@
             align-items: center
             justify-content: center
             flex-wrap: wrap
-            padding: 0
-            row-gap: 16px
-            // gap: 20px
-
+            padding: 0 0 20px 0
+            row-gap: 36px
+            .loader
+                height: 100px
+                width: 100px
             .image
-                // margin: 20px
                 margin: 0
                 padding: 0
                 display: flex
                 justify-content: center
-                // width: auto
                 .opera
-                    // padding: 5px
+                    border: 13px groove $brownDark
+                    box-shadow: 0px 0px 15px 8px black
                     aspect-ratio: 2/3
                     max-width: 200px
+                    margin: 0 0 10px 0
+                    &:hover
+                        transform: translateY(-10%)
+                        transition: transform 0.3s ease-in-out
+                        transition: 0.3s ease-in-out
+                        box-shadow: 0px 0px 15px 15px $yellow
+
     @media screen and ( max-width: 992px )
         .image-slider
+            height: 350px
             #prev-slide,
             #next-slide
                 width: 50px
                 height: 50px
                 font-size: 50px
             .chunk
-                display: flex
-                flex-direction: row
-                align-items: center
-                justify-content: center
-                flex-wrap: wrap
                 .image
                     .opera
+                        border: 7px groove $brownDark
+                        box-shadow: 0px 0px 15px 8px black
                         max-width: 100px
+                        &:hover
 
     @media screen and ( max-width: 768px  )
         .image-slider
+            height: 200px
             #prev-slide,
             #next-slide
                 width: 30px
                 height: 30px
                 font-size: 30px
             .chunk
+                padding: 50px 0 20px 0
                 .image
                     .opera
                         max-width: 70px
+                        &:hover
+
     @media screen and ( max-width:576px  )
         .image
             width: calc( (100% - 30px)/3 )
@@ -83,9 +95,12 @@
 
     @media screen and ( max-width:376px  )
         .image-slider
+            height: 100px
             .chunk
-                overflow-y: scroll
                 .image
                     margin: 0
                     .opera
+                        border: 4px groove $brownDark
+                        box-shadow: 0px 0px 15px 8px black
                         max-width: 40px
+                        &:hover

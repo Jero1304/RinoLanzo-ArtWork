@@ -10,7 +10,9 @@ export class PortfolioComponent {
   images: any[] = [];
   chunkedImages: any;
   currentIndex = 0;
-  chunkRange = 6
+  chunkRange = 6;
+  loading: boolean = false;
+
   constructor(private imageService: ImageService) {}
 
   ngOnInit(): void {
@@ -29,18 +31,30 @@ export class PortfolioComponent {
   }
 
   nextSlide() {
-    this.currentIndex++;
-    if (this.currentIndex >= this.chunkedImages.length) {
-      this.currentIndex = 0;
-    }
-    this.chunkedImages = this.chunkArray(this.chunkRange, this.currentIndex);
+    this.loading = true;
+    setTimeout(() => {
+      this.currentIndex++;
+      if (this.currentIndex >= this.chunkedImages.length) {
+        this.currentIndex = 0;
+      }
+      this.chunkedImages = this.chunkArray(this.chunkRange, this.currentIndex);
+      this.loading = false; // Reimposta il loader a false
+    }, 1000); // 1000 millisecondi = 1 secondo
   }
 
   previusSlide() {
-    this.currentIndex--;
-    if (this.currentIndex < 0) {
-      this.currentIndex = this.chunkedImages.length - 1;
-    }
-    this.chunkedImages = this.chunkArray(this.chunkRange, this.currentIndex);
+    this.loading = true;
+    setTimeout(() => {
+      this.currentIndex--;
+      if (this.currentIndex < 0) {
+        this.currentIndex = this.chunkedImages.length - 1;
+      }
+      this.chunkedImages = this.chunkArray(this.chunkRange, this.currentIndex);
+      this.loading = false; // Reimposta il loader a false
+    }, 1000); // 1000 millisecondi = 1 secondo
+  }
+
+  onImageLoad() {
+    this.loading = false;
   }
 }
