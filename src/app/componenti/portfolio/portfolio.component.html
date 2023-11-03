@@ -1,5 +1,3 @@
-<!-- <img [src]="'../../../assets/images/' + image.path" alt="Image" /> -->
-
 <div class="portfolio">
   <div class="container">
     <div class="title-portfolio">
@@ -7,16 +5,20 @@
     </div>
 
     <div class="image-slider">
-      <div class="carousel">
-        <!-- {{chunkedImages[currentIndex][0].path}} -->
-        <div class="chunk" *ngFor="let chunk of chunkedImages[currentIndex]">
-          <div class="image">
-            {{chunk.path}}
-          </div>
+      <i id="prev-slide" (click)="previusSlide()" class="fa-regular fa-circle-left"></i>
+      <div class="chunk col-sm-9 col-lg-10">
+        <div
+          class="image col-sm-4  col-md-4 col-lg-4"
+          *ngFor="let chunk of chunkedImages[currentIndex]"
+        >
+          <img
+            class="opera"
+            [src]="'../../../assets/images/' + chunk.path"
+            alt="Image"
+          />
         </div>
       </div>
+      <i id="next-slide" (click)="nextSlide()" class="fa-regular fa-circle-right"></i>
     </div>
-    <button (click)="previusSlide()">prev</button>
-    <button (click)="nextSlide()">next</button>
   </div>
 </div>

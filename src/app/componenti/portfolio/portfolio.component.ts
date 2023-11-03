@@ -10,11 +10,12 @@ export class PortfolioComponent {
   images: any[] = [];
   chunkedImages: any;
   currentIndex = 0;
+  chunkRange = 6
   constructor(private imageService: ImageService) {}
 
   ngOnInit(): void {
     this.images = this.imageService.getImage();
-    this.chunkedImages = this.chunkArray(5, this.currentIndex);
+    this.chunkedImages = this.chunkArray(this.chunkRange, this.currentIndex);
   }
 
   chunkArray(chunkSize: number, index: number): any[][] {
@@ -32,7 +33,7 @@ export class PortfolioComponent {
     if (this.currentIndex >= this.chunkedImages.length) {
       this.currentIndex = 0;
     }
-    this.chunkedImages = this.chunkArray(5, this.currentIndex);
+    this.chunkedImages = this.chunkArray(this.chunkRange, this.currentIndex);
   }
 
   previusSlide() {
@@ -40,6 +41,6 @@ export class PortfolioComponent {
     if (this.currentIndex < 0) {
       this.currentIndex = this.chunkedImages.length - 1;
     }
-    this.chunkedImages = this.chunkArray(5, this.currentIndex);
+    this.chunkedImages = this.chunkArray(this.chunkRange, this.currentIndex);
   }
 }
