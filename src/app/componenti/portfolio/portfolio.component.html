@@ -1,3 +1,5 @@
+<!-- <img [src]="'../../../assets/images/' + image.path" alt="Image" /> -->
+
 <div class="portfolio">
   <div class="container">
     <div class="title-portfolio">
@@ -5,10 +7,15 @@
     </div>
 
     <div class="image-slider">
-      <div class="image" *ngFor="let image of images">
-        <img [src]="'../../../assets/images/' + image.path" alt="Image" />
+      <div class="carousel">
+        <div class="chunk" *ngFor="let chunk of chunkedImages">
+          <div class="image" *ngFor="let image of chunk">
+            {{ image.path }}
+          </div>
+        </div>
       </div>
     </div>
-
+    <button (click)="previusSlide()">prev</button>
+    <button (click)="nextSlide()">next</button>
   </div>
 </div>

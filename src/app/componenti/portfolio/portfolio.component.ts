@@ -8,10 +8,29 @@ import { ImageService } from 'src/app/service/image.service';
 })
 export class PortfolioComponent {
   images: any[] = [];
+  chunkedImages: any;
+  currentIndex = 0;
   constructor(private imageService: ImageService) {}
 
   ngOnInit(): void {
     this.images = this.imageService.getImage();
-    console.log(this.images);
+    this.chunkedImages = this.chunkArray(5, this.currentIndex);
+  }
+
+  chunkArray(chunkSize: number, index: number): any[][] {
+    const results = [];
+    console.log(this.images.slice(index, index + chunkSize));
+    results.push(this.images.slice(index, index + chunkSize));
+    console.log(results);
+    return results;
+  }
+
+  nextSlide() {
+    this.currentIndex = this.currentIndex + 5;
+    this.chunkedImages = this.chunkArray(5, this.currentIndex);
+  }
+  previusSlide() {
+    this.currentIndex = this.currentIndex - 5;
+    this.chunkedImages = this.chunkArray(5, this.currentIndex);
   }
 }
