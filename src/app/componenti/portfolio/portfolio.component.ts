@@ -19,18 +19,27 @@ export class PortfolioComponent {
 
   chunkArray(chunkSize: number, index: number): any[][] {
     const results = [];
-    console.log(this.images.slice(index, index + chunkSize));
-    results.push(this.images.slice(index, index + chunkSize));
-    console.log(results);
+    for (let i = 0; i < this.images.length; i += chunkSize) {
+      // console.log(this.images.slice(i, i + chunkSize));
+      results.push(this.images.slice(i, i + chunkSize));
+    }
+    console.log(results[index]);
     return results;
   }
 
   nextSlide() {
-    this.currentIndex = this.currentIndex + 5;
+    this.currentIndex++;
+    if (this.currentIndex >= this.chunkedImages.length) {
+      this.currentIndex = 0;
+    }
     this.chunkedImages = this.chunkArray(5, this.currentIndex);
   }
+
   previusSlide() {
-    this.currentIndex = this.currentIndex - 5;
+    this.currentIndex--;
+    if (this.currentIndex < 0) {
+      this.currentIndex = this.chunkedImages.length - 1;
+    }
     this.chunkedImages = this.chunkArray(5, this.currentIndex);
   }
 }

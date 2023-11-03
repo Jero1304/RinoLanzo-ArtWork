@@ -8,9 +8,10 @@
 
     <div class="image-slider">
       <div class="carousel">
-        <div class="chunk" *ngFor="let chunk of chunkedImages">
-          <div class="image" *ngFor="let image of chunk">
-            {{ image.path }}
+        <!-- {{chunkedImages[currentIndex][0].path}} -->
+        <div class="chunk" *ngFor="let chunk of chunkedImages[currentIndex]">
+          <div class="image">
+            {{chunk.path}}
           </div>
         </div>
       </div>
