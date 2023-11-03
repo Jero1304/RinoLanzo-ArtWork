@@ -14,7 +14,10 @@
       <div class="chunk col-sm-9 col-lg-10">
         <div
           class="image col-sm-4 col-md-4 col-lg-4"
-          *ngFor="let chunk of chunkedImages[currentIndex]"
+          *ngFor="
+            let chunk of chunkedImages[currentIndex];
+            let imageIndex = index
+          "
         >
           <img
             *ngIf="loading === false"
@@ -22,10 +25,10 @@
             [src]="'../../../assets/images/' + chunk.path"
             alt="Image"
             (load)="(onImageLoad)"
+            (click)="currentOpera(chunk)"
           />
         </div>
 
-        
         <div
           *ngIf="loading"
           class="loader spinner-border text-secondary"
@@ -41,5 +44,8 @@
         class="fa-regular fa-circle-right"
       ></i>
     </div>
+
+    <app-opera-dettaglio></app-opera-dettaglio>
+
   </div>
 </div>

@@ -12,6 +12,7 @@ import { AboutComponent } from './componenti/about/about.component';
 import { ImageSliderSideComponent } from './componenti/about/image-slider-side/image-slider-side.component';
 import { CurriculumComponent } from './componenti/curriculum/curriculum.component';
 import { PortfolioComponent } from './componenti/portfolio/portfolio.component';
+import { OperaDettaglioComponent } from './componenti/portfolio/opera-dettaglio/opera-dettaglio.component';
 
 @NgModule({
   declarations: [
@@ -22,7 +23,8 @@ import { PortfolioComponent } from './componenti/portfolio/portfolio.component';
     AboutComponent,
     ImageSliderSideComponent,
     CurriculumComponent,
-    PortfolioComponent
+    PortfolioComponent,
+    OperaDettaglioComponent
   ],
   imports: [
     BrowserModule,

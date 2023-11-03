@@ -38,8 +38,8 @@ export class PortfolioComponent {
         this.currentIndex = 0;
       }
       this.chunkedImages = this.chunkArray(this.chunkRange, this.currentIndex);
-      this.loading = false; // Reimposta il loader a false
-    }, 1000); // 1000 millisecondi = 1 secondo
+      this.loading = false;
+    }, 1000);
   }
 
   previusSlide() {
@@ -50,11 +50,17 @@ export class PortfolioComponent {
         this.currentIndex = this.chunkedImages.length - 1;
       }
       this.chunkedImages = this.chunkArray(this.chunkRange, this.currentIndex);
-      this.loading = false; // Reimposta il loader a false
-    }, 1000); // 1000 millisecondi = 1 secondo
+      this.loading = false;
+    }, 1000);
   }
 
   onImageLoad() {
     this.loading = false;
+  }
+
+  currentOpera(imageChunk: any) {
+    const operaPath = imageChunk.path
+    this.imageService.setSelectedOpera(operaPath)
+    // console.log(imageChunk);
   }
 }
