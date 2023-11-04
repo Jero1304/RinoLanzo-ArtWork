@@ -12,6 +12,8 @@ export class PortfolioComponent {
   currentIndex = 0;
   chunkRange = 6;
   loading: boolean = false;
+  operaDefault = false;
+  selectedOpera: any = null;
 
   constructor(private imageService: ImageService) {}
 
@@ -59,8 +61,9 @@ export class PortfolioComponent {
   }
 
   currentOpera(imageChunk: any) {
-    const operaPath = imageChunk.path
-    this.imageService.setSelectedOpera(operaPath)
-    // console.log(imageChunk);
+    const operaPath = imageChunk.path;
+    this.imageService.setSelectedOpera(operaPath);
+    this.operaDefault = true;
+    this.selectedOpera = operaPath
   }
 }

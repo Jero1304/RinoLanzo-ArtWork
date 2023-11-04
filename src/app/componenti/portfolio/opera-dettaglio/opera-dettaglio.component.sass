@@ -1,0 +1,18 @@
+@import '../../../../styles'
+.opera-dettaglio
+    padding: 40px 0
+    .opera
+        display: flex
+        justify-content: center
+        img
+            width: 400px
+            border: 13px groove $brownDark
+            box-shadow: 0px 0px 15px 8px black
+            aspect-ratio: 2/3
+        @media screen and ( max-width: 768px  )
+            img
+                margin-top: 30px
+                width: 250px
+        @media screen and ( max-width:376px  )
+            img
+                width: 200px

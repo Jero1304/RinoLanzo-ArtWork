@@ -5,11 +5,9 @@
     </div>
 
     <div class="image-slider">
-      <i
-        id="prev-slide"
-        (click)="previusSlide()"
-        class="fa-regular fa-circle-left"
-      ></i>
+      <div class="prev" (click)="previusSlide()">
+        <i id="prev-slide" class="fa-solid fa-paintbrush"> </i>
+      </div>
 
       <div class="chunk col-sm-9 col-lg-10">
         <div
@@ -26,6 +24,7 @@
             alt="Image"
             (load)="(onImageLoad)"
             (click)="currentOpera(chunk)"
+            [class.selected]="selectedOpera === chunk.path"
           />
         </div>
 
@@ -34,18 +33,15 @@
           class="loader spinner-border text-secondary"
           role="status"
         >
-          <span class="visually-hidden">Loading...</span>
+          <span class="visually-hidden"></span>
         </div>
       </div>
 
-      <i
-        id="next-slide"
-        (click)="nextSlide()"
-        class="fa-regular fa-circle-right"
-      ></i>
+      <div class="next" (click)="nextSlide()">
+        <i id="next-slide" class="fa-solid fa-paintbrush"></i>
+      </div>
     </div>
 
-    <app-opera-dettaglio></app-opera-dettaglio>
-
+    <app-opera-dettaglio *ngIf="operaDefault"></app-opera-dettaglio>
   </div>
 </div>
