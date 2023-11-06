@@ -34,15 +34,18 @@
     </div>
 
     <ul class="paginator">
+      <li (click)="previusPaginator()">&#9664;</li>
       <li
-        *ngFor="let item of chunkArray(chunkRange); let i = index"
-        [ngClass]="{ 'paginator-selected': i === currentIndex }"
-        (click)="changePage(i)"
+        *ngFor="let item of paginatorSlice(); let i = index"
+        [ngClass]="{ 'paginator-selected': i + paginatorIndex === currentIndex }"
+        (click)="changePage(i + paginatorIndex)"
       >
-        {{ i + 1 }}
+        {{ i + 1 + paginatorIndex }}
       </li>
-      <p class="m-0">di {{ chunkArray(chunkRange).length }}</p>
+      <li (click)="nextPaginator()">&#9654;</li>
     </ul>
+    {{paginatorIndex}}
+    
 
     <app-opera-dettaglio *ngIf="operaDefault"></app-opera-dettaglio>
   </div>

@@ -17,6 +17,7 @@
         justify-content: center
         align-items: center
         gap: 10px
+        padding: 0
         li
             list-style: none
             border: 1px solid black
@@ -150,8 +151,26 @@
 @media screen and ( max-width:376px  )
     .portfolio
         min-height: 50vh
+        .title-portfolio
+            margin-bottom: 30px
+        .paginator
+            display: flex
+            flex-direction: row
+            justify-content: center
+            align-items: center
+            gap: 10px
+            li
+                list-style: none
+                border: 1px solid black
+                width: 30px
+                height: 30px
+                cursor: pointer
+                text-align: center
+                display: flex
+                align-items: center
+                justify-content: center
         .image-slider
-            height: 100px
+            height: 200px
             .chunk
                 .image
                     margin: 0
