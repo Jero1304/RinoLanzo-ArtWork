@@ -96,7 +96,9 @@ export class PortfolioComponent {
       startPage = Math.max(0, endPage - (pagesToShow - 1));
     }
 
-    if (startPage > 2) {
+    console.log(startPage);
+
+    if (startPage >= 1) {
       this.firstPage = true;
     } else {
       this.firstPage = false;

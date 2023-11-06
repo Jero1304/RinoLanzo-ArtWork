@@ -32,7 +32,7 @@
             justify-content: center
             &:hover
                 transition: 0.3s ease-in
-                background-color: $yellow
+                background-color: $cyanDark
                 border: none
         .paginator-selected
             background-color: $cyan
@@ -53,6 +53,7 @@
         height: 400px
         .prev,
         .next
+            border: 2px solid $brownDark
             display: flex
             justify-content: center
             align-items: center
@@ -63,13 +64,19 @@
             aspect-ratio: 1/1
             border-radius: 999px
             &:hover
+                border: 2px solid $cyan
                 color: $cyan
-                transition: color 0.3s ease-in-out
+                box-shadow: 0px 0px 7px 0px $cyan
+                transition: 0.3s ease-in-out
+                #prev-slide,
+                #next-slide
+                    transition: 0.3s ease-in-out
+                    color: $cyan
             #prev-slide
-                color: currentColor
+                color: $brownDark
             #next-slide
                 transform: scaleX(-1)
-                color: currentColor
+                color: $brownDark
             #prev-slide,
             #next-slide
                 width: 70px
@@ -98,7 +105,7 @@
                     cursor: pointer
                     &:hover
                         transition: 0.3s ease-in-out
-                        box-shadow: 0px 0px 15px 15px $yellow
+                        box-shadow: 0px 0px 15px 10px $yellow
 
                 .selected
                     transform: translateY(-10%)
