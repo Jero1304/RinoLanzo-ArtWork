@@ -2,7 +2,7 @@
 .portfolio
     min-height: 50vh
     .title-portfolio
-        margin: 20px 0 50px 0
+        margin: 20px 0 30px 0
         display: flex
         justify-content: center
         .title
@@ -49,7 +49,7 @@
         align-items: center
         justify-content: center
         margin: 20px 0 30px 0
-        height: 700px
+        height: 400px
         .prev,
         .next
             display: flex
@@ -106,7 +106,7 @@
                     box-shadow: 0px 0px 15px 15px $yellow
     @media screen and ( max-width: 992px )
         .image-slider
-            height: 400px
+            height: 160px
             #prev-slide,
             #next-slide
                 width: 50px
@@ -123,7 +123,6 @@
 
     @media screen and ( max-width: 768px  )
         .image-slider
-            height: 300px
             .prev,
             .next
                 #prev-slide,
@@ -136,17 +135,20 @@
                 .image
                     .opera
                         box-shadow: 0px 0px 10px 5px black
-                        max-width: 60px
+                        max-width: 80px
                         &:hover
                             transition: 0.3s ease-in-out
                             box-shadow: 0px 0px 8px 8px $yellow
 
-    @media screen and ( max-width:576px  )
-        .chunk
-            .image
-                width: calc( (100% - 30px)/3 )
-                .opera
-                    max-width: 40px
+        @media screen and ( max-width:576px  )
+            .image-slider
+                height: 100%
+                .chunk
+                    flex-direction: column
+                    .image
+                        width: calc( (100% - 30px)/3 )
+                        .opera
+                            max-width: 100px
 
 @media screen and ( max-width:376px  )
     .portfolio
@@ -170,12 +172,12 @@
                 align-items: center
                 justify-content: center
         .image-slider
-            height: 200px
+            height: 100%
             .chunk
                 .image
                     margin: 0
                     .opera
                         border: 4px groove $brownDark
                         box-shadow: 0px 0px 8px 2px black
-                        max-width: 40px
+                        max-width: 80px
                         &:hover

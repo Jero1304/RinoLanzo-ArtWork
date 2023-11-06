@@ -10,7 +10,7 @@ export class PortfolioComponent {
   images: any[] = [];
   chunkedImages: any;
   currentIndex = 0;
-  chunkRange = 6;
+  chunkRange = 3;
   operaDefault = false;
   selectedOpera: any = null;
   paginatorIndex = 0;
@@ -57,6 +57,8 @@ export class PortfolioComponent {
 
   changePage(currentPage: number) {
     this.currentIndex = currentPage;
+    console.log(this.currentIndex);
+    this.paginatorIndex = this.calculatePaginatorIndex(currentPage);
   }
 
   changePaginatorPage(paginatorIndex: number) {
@@ -65,30 +67,53 @@ export class PortfolioComponent {
   }
 
   paginatorSlice() {
+    const totalChunks = this.chunkedImages.length;
+    const pagesToShow = 5;
+    let startPage = Math.max(
+      0,
+      this.currentIndex - Math.floor(pagesToShow / 2)
+    );
+    let endPage = startPage + pagesToShow - 1;
 
-    return this.chunkArray(this.chunkRange).slice(
-      this.paginatorIndex,
-      this.paginatorIndex + 5
+    if (endPage >= totalChunks) {
+      endPage = totalChunks - 1;
+      startPage = Math.max(0, endPage - (pagesToShow - 1));
+    }
+
+    return Array.from(
+      { length: endPage - startPage + 1 },
+      (_, i) => startPage + i
     );
   }
 
   nextPaginator() {
-    console.log(this.paginatorSlice().length);
-    if (this.paginatorIndex + 5 < this.chunkArray(this.chunkRange).length) {
-      this.paginatorIndex += 5;
-    } else {
-      this.paginatorIndex = 0;
+    this.currentIndex++;
+    if (this.currentIndex >= this.chunkedImages.length) {
+      this.currentIndex = 0;
     }
-    this.changePaginatorPage(this.paginatorIndex);
+    this.paginatorIndex = this.calculatePaginatorIndex(this.currentIndex);
+    this.chunkedImages = this.chunkArray(this.chunkRange);
   }
 
   previusPaginator() {
-    if (this.paginatorIndex > 0) {
-      this.paginatorIndex -= 5;
-    } else {
-      this.paginatorIndex = 0;
-      console.log(this.paginatorIndex);
+    this.currentIndex--;
+    if (this.currentIndex < 0) {
+      this.currentIndex = this.chunkedImages.length - 1;
     }
-    this.changePaginatorPage(this.paginatorIndex);
+    this.paginatorIndex = this.calculatePaginatorIndex(this.currentIndex);
+    this.chunkedImages = this.chunkArray(this.chunkRange);
+  }
+  calculatePaginatorIndex(currentPage: number) {
+    const totalChunks = this.chunkedImages.length;
+    const pagesToShow = 5;
+    let startPage = Math.max(0, currentPage - Math.floor(pagesToShow / 2));
+    let endPage = startPage + pagesToShow - 1;
+
+    if (endPage >= totalChunks) {
+      endPage = totalChunks - 1;
+      startPage = Math.max(0, endPage - (pagesToShow - 1));
+    }
+
+    return startPage;
   }
 }
