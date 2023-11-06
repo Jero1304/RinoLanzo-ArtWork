@@ -14,6 +14,8 @@ export class PortfolioComponent {
   operaDefault = false;
   selectedOpera: any = null;
   paginatorIndex = 0;
+  firstPage: boolean = false;
+  lastPage: boolean = true;
 
   constructor(private imageService: ImageService) {}
 
@@ -32,22 +34,6 @@ export class PortfolioComponent {
     return results;
   }
 
-  nextSlide() {
-    this.currentIndex++;
-    if (this.currentIndex >= this.chunkedImages.length) {
-      this.currentIndex = 0;
-    }
-    this.chunkedImages = this.chunkArray(this.chunkRange);
-  }
-
-  previusSlide() {
-    this.currentIndex--;
-    if (this.currentIndex < 0) {
-      this.currentIndex = this.chunkedImages.length - 1;
-    }
-    this.chunkedImages = this.chunkArray(this.chunkRange);
-  }
-
   currentOpera(imageChunk: any) {
     const operaPath = imageChunk.path;
     this.imageService.setSelectedOpera(operaPath);
@@ -59,11 +45,6 @@ export class PortfolioComponent {
     this.currentIndex = currentPage;
     console.log(this.currentIndex);
     this.paginatorIndex = this.calculatePaginatorIndex(currentPage);
-  }
-
-  changePaginatorPage(paginatorIndex: number) {
-    this.paginatorIndex = paginatorIndex;
-    console.log(this.paginatorIndex);
   }
 
   paginatorSlice() {
@@ -103,6 +84,7 @@ export class PortfolioComponent {
     this.paginatorIndex = this.calculatePaginatorIndex(this.currentIndex);
     this.chunkedImages = this.chunkArray(this.chunkRange);
   }
+
   calculatePaginatorIndex(currentPage: number) {
     const totalChunks = this.chunkedImages.length;
     const pagesToShow = 5;
@@ -114,6 +96,35 @@ export class PortfolioComponent {
       startPage = Math.max(0, endPage - (pagesToShow - 1));
     }
 
+    if (startPage > 0) {
+      this.firstPage = true;
+      this.lastPage = true;
+    } else {
+      this.firstPage = false;
+    }
+
+    console.log(this.chunkedImages.length);
+    console.log(endPage);
+    if (this.chunkedImages.length - 1 > endPage) {
+      this.firstPage = true;
+      this.lastPage = true;
+    } else {
+      this.lastPage = false;
+    }
+
+    console.log('first', this.firstPage);
+    console.log('last', this.lastPage);
+
+    // console.log(endPage);
     return startPage;
+  }
+
+  firstChunk() {
+    this.currentIndex = 0;
+    this.paginatorIndex = this.calculatePaginatorIndex(0);
+  }
+  lastChunk() {
+    this.currentIndex = this.chunkedImages.length - 1;
+    this.paginatorIndex = this.calculatePaginatorIndex(this.currentIndex);
   }
 }
