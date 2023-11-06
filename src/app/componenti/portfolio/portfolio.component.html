@@ -45,6 +45,7 @@
     <ul class="paginator">
       <li
         *ngFor="let item of chunkArray(chunkRange); let i = index"
+        [ngClass]="{ 'paginator-selected': i === currentIndex }"
         (click)="changePage(i)"
       >
         {{ i + 1 }}
