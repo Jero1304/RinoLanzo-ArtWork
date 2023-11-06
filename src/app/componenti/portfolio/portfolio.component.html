@@ -18,23 +18,14 @@
           "
         >
           <img
-            *ngIf="loading === false"
             class="opera"
             [src]="'../../../assets/images/' + chunk.path"
             alt="Image"
-            (load)="(onImageLoad)"
             (click)="currentOpera(chunk)"
             [class.selected]="selectedOpera === chunk.path"
           />
         </div>
 
-        <div
-          *ngIf="loading"
-          class="loader spinner-border text-secondary"
-          role="status"
-        >
-          <span class="visually-hidden"></span>
-        </div>
       </div>
 
       <div class="next" (click)="nextSlide()">

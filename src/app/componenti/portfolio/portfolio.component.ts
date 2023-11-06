@@ -11,7 +11,6 @@ export class PortfolioComponent {
   chunkedImages: any;
   currentIndex = 0;
   chunkRange = 6;
-  loading: boolean = false;
   operaDefault = false;
   selectedOpera: any = null;
 
@@ -33,31 +32,19 @@ export class PortfolioComponent {
   }
 
   nextSlide() {
-    this.loading = true;
-    setTimeout(() => {
-      this.currentIndex++;
+    this.currentIndex++;
       if (this.currentIndex >= this.chunkedImages.length) {
         this.currentIndex = 0;
       }
       this.chunkedImages = this.chunkArray(this.chunkRange);
-      this.loading = false;
-    }, 1000);
   }
 
   previusSlide() {
-    this.loading = true;
-    setTimeout(() => {
-      this.currentIndex--;
+    this.currentIndex--;
       if (this.currentIndex < 0) {
         this.currentIndex = this.chunkedImages.length - 1;
       }
       this.chunkedImages = this.chunkArray(this.chunkRange);
-      this.loading = false;
-    }, 1000);
-  }
-
-  onImageLoad() {
-    this.loading = false;
   }
 
   currentOpera(imageChunk: any) {
@@ -68,10 +55,6 @@ export class PortfolioComponent {
   }
 
   changePage(currentPage:number){
-    this.loading = true;
-    setTimeout(() => {
-      this.currentIndex = currentPage
-      this.loading = false;
-    }, 1000);
+    this.currentIndex = currentPage
   }
 }

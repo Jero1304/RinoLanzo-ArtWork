@@ -19,18 +19,28 @@
         gap: 10px
         li
             list-style: none
-            // padding: 5px
             border: 1px solid black
             width: 30px
             height: 30px
             cursor: pointer
             text-align: center
+            display: flex
+            align-items: center
+            justify-content: center
             &:hover
                 transition: 0.3s ease-in
                 background-color: $yellow
+                border: none
+                color: white
         .paginator-selected
             background-color: $cyan
+            border: none
+            color: white
             transition: 0.3s ease-in
+            &:hover
+                background-color: $cyan
+                border: none
+                color: white
 
     .image-slider
         display: flex
@@ -72,9 +82,6 @@
             flex-wrap: wrap
             padding: 0 0 20px 0
             row-gap: 80px
-            .loader
-                height: 100px
-                width: 100px
             .image
                 margin: 0
                 padding: 0
