@@ -25,7 +25,6 @@
             [class.selected]="selectedOpera === chunk.path"
           />
         </div>
-
       </div>
 
       <div class="next" (click)="nextPaginator()">
@@ -34,21 +33,30 @@
     </div>
 
     <ul class="paginator">
-
-      <li (click)="previusPaginator()">&#9664;</li>
+      <!-- <li (click)="previusPaginator()">&#9664;</li> -->
       <li *ngIf="firstPage" (click)="firstChunk()">first</li>
       <li
         *ngFor="let item of paginatorSlice(); let i = index"
-        [ngClass]="{ 'paginator-selected': i + paginatorIndex === currentIndex }"
+        [ngClass]="{
+          'paginator-selected': i + paginatorIndex === currentIndex
+        }"
         (click)="changePage(i + paginatorIndex)"
       >
         {{ i + 1 + paginatorIndex }}
       </li>
       <li *ngIf="lastPage" (click)="lastChunk()">last</li>
-      <li (click)="nextPaginator()">&#9654;</li>
+      <!-- <li (click)="nextPaginator()">&#9654;</li> -->
     </ul>
-    
 
+    <button
+      class="btn btn-danger"
+      *ngIf="operaDefault"
+      (click)="operaDefault = false"
+    >
+      <i class="fa-solid fa-xmark">
+        <p class="m-0 pt-2">ESC</p>
+      </i>
+    </button>
     <app-opera-dettaglio *ngIf="operaDefault"></app-opera-dettaglio>
   </div>
 </div>

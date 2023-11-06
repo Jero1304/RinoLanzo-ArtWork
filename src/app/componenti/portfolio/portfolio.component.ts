@@ -96,17 +96,12 @@ export class PortfolioComponent {
       startPage = Math.max(0, endPage - (pagesToShow - 1));
     }
 
-    if (startPage > 0) {
+    if (startPage > 2) {
       this.firstPage = true;
-      this.lastPage = true;
     } else {
       this.firstPage = false;
     }
-
-    console.log(this.chunkedImages.length);
-    console.log(endPage);
     if (this.chunkedImages.length - 1 > endPage) {
-      this.firstPage = true;
       this.lastPage = true;
     } else {
       this.lastPage = false;
