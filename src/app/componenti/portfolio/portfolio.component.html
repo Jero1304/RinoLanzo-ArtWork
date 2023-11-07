@@ -5,8 +5,16 @@
     </div>
 
     <div class="image-slider">
+      <button
+        class="scroll-down-button"
+        *ngIf="scrollDownActive && operaDefault"
+        (click)="scrollDownToOperaDettaglio()"
+        (click)="scrollDownActive = false"
+      >
+        <i class="fa-solid fa-arrow-down"></i>
+      </button>
       <div class="prev" (click)="previusPaginator()">
-        <i id="prev-slide" class="fa-solid fa-paintbrush"> </i>
+        <i id="prev-slide" class="fa-solid fa-paintbrush"></i>
       </div>
 
       <div class="chunk col-sm-9 col-lg-10">
@@ -22,6 +30,7 @@
             [src]="'../../../assets/images/' + chunk.path"
             alt="Image"
             (click)="currentOpera(chunk)"
+            (click)="scrollDownActive = true"
             [class.selected]="selectedOpera === chunk.path"
           />
         </div>
@@ -33,8 +42,7 @@
     </div>
 
     <ul class="paginator">
-      <!-- <li (click)="previusPaginator()">&#9664;</li> -->
-      <li *ngIf="firstPage" (click)="firstChunk()">first</li>
+      <li class="first-page" *ngIf="firstPage" (click)="firstChunk()">1st</li>
       <li
         *ngFor="let item of paginatorSlice(); let i = index"
         [ngClass]="{
@@ -44,19 +52,18 @@
       >
         {{ i + 1 + paginatorIndex }}
       </li>
-      <li *ngIf="lastPage" (click)="lastChunk()">last</li>
-      <!-- <li (click)="nextPaginator()">&#9654;</li> -->
+      <li class="last-page" *ngIf="lastPage" (click)="lastChunk()">{{chunkedImages.length}}th</li>
     </ul>
 
-    <button
-      class="btn btn-danger"
-      *ngIf="operaDefault"
-      (click)="operaDefault = false"
-    >
-      <i class="fa-solid fa-xmark">
-        <p class="m-0 pt-2">ESC</p>
-      </i>
-    </button>
-    <app-opera-dettaglio *ngIf="operaDefault"></app-opera-dettaglio>
+    <div id="opera-dettaglio">
+      <button
+        class="btn btn-danger btn"
+        *ngIf="operaDefault"
+        (click)="operaDefault = false"
+      >
+        <i class="fa-solid fa-xmark"> </i>
+      </button>
+      <app-opera-dettaglio *ngIf="operaDefault"></app-opera-dettaglio>
+    </div>
   </div>
 </div>

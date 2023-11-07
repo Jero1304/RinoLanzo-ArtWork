@@ -1,6 +1,13 @@
 @import '../../../styles'
 .portfolio
     min-height: 50vh
+    .btn
+        border-radius: 100%
+        font-size: 30px
+        aspect-ratio: 1/1
+        i
+            height: 30px
+            width: 30px
     .title-portfolio
         margin: 20px 0 30px 0
         display: flex
@@ -43,14 +50,36 @@
                 background-color: $cyan
                 border: none
                 color: white
-
+        .first-page,
+        .last-page
+            background-color: $brownDark
+            padding: 0 20px
+            // border: 2px solid $brownDark
+            &:hover
+                background-color: $cyan
+                border: none
+                color: white
     .image-slider
         display: flex
         flex-direction: row
         align-items: center
-        justify-content: center
+        justify-content: space-between
         margin: 20px 0 30px 0
         height: 400px
+        position: none
+        .scroll-down-button
+            background-color: $cyan
+            color: white
+            position: fixed
+            bottom: 30px
+            right: 30px
+            border-radius: 100%
+            border: 2px solid #4a75aa
+            font-size: 20px
+            aspect-ratio: 1/1
+            i
+                height: 25px
+                width: 30px
         .prev,
         .next
             border: 2px solid $brownDark
@@ -112,9 +141,11 @@
                     transition: transform 0.3s ease-in-out
                     transition: 0.3s ease-in-out
                     box-shadow: 0px 0px 15px 15px $yellow
+
     @media screen and ( max-width: 992px )
         .image-slider
-            height: 160px
+            height: 200px
+            .scroll-down-button
             #prev-slide,
             #next-slide
                 width: 50px

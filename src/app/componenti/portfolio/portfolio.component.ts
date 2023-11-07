@@ -16,6 +16,7 @@ export class PortfolioComponent {
   paginatorIndex = 0;
   firstPage: boolean = false;
   lastPage: boolean = true;
+  scrollDownActive: boolean = false;
 
   constructor(private imageService: ImageService) {}
 
@@ -96,23 +97,18 @@ export class PortfolioComponent {
       startPage = Math.max(0, endPage - (pagesToShow - 1));
     }
 
-    console.log(startPage);
-
     if (startPage >= 1) {
       this.firstPage = true;
     } else {
       this.firstPage = false;
     }
+    
     if (this.chunkedImages.length - 1 > endPage) {
       this.lastPage = true;
     } else {
       this.lastPage = false;
     }
 
-    console.log('first', this.firstPage);
-    console.log('last', this.lastPage);
-
-    // console.log(endPage);
     return startPage;
   }
 
@@ -123,5 +119,12 @@ export class PortfolioComponent {
   lastChunk() {
     this.currentIndex = this.chunkedImages.length - 1;
     this.paginatorIndex = this.calculatePaginatorIndex(this.currentIndex);
+  }
+
+  scrollDownToOperaDettaglio() {
+    const element = document.getElementById('opera-dettaglio');
+    if (element) {
+      element.scrollIntoView({ behavior: 'smooth' });
+    }
   }
 }
