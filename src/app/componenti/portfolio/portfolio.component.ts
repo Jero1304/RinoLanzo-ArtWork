@@ -44,15 +44,15 @@ export class PortfolioComponent implements OnInit {
   }
 
   changePage(currentPage: number) {
-    this.paginatorIndex = this.calculatePaginatorIndex(currentPage);
-    this.fadeOut(currentPage);
-  }
-
-  fadeOut(currentPage: number) {
     if (this.isAnimating) return;
     this.isAnimating = true;
+
+    this.chunkedImages = this.chunkArray(this.chunkRange);
+
     setTimeout(() => {
-      this.currentIndex = currentPage;
+      this.currentIndex = currentPage; // Imposta il nuovo indice
+      this.paginatorIndex = this.calculatePaginatorIndex(currentPage);
+
       this.chunkedImages = this.chunkArray(this.chunkRange);
 
       setTimeout(() => {
@@ -82,25 +82,41 @@ export class PortfolioComponent implements OnInit {
   }
 
   nextPaginator() {
-    this.currentIndex++;
-    // this.fadeOut(this.currentIndex);
-    if (this.currentIndex >= this.chunkedImages.length) {
-      this.currentIndex = 0;
-      // this.fadeOut(this.currentIndex);
-    }
-    this.paginatorIndex = this.calculatePaginatorIndex(this.currentIndex);
-    this.chunkedImages = this.chunkArray(this.chunkRange);
+    if (this.isAnimating) return;
+    this.isAnimating = true;
+
+    setTimeout(() => {
+      this.currentIndex++;
+      if (this.currentIndex >= this.chunkedImages.length) {
+        this.currentIndex = 0;
+      }
+      this.paginatorIndex = this.calculatePaginatorIndex(this.currentIndex);
+
+      this.chunkedImages = this.chunkArray(this.chunkRange);
+
+      setTimeout(() => {
+        this.isAnimating = false;
+      }, 300);
+    }, 300);
   }
 
   previusPaginator() {
-    this.currentIndex--;
-    // this.fadeOut(this.currentIndex);
-    if (this.currentIndex < 0) {
-      this.currentIndex = this.chunkedImages.length - 1;
-      // this.fadeOut(this.currentIndex);
-    }
-    this.paginatorIndex = this.calculatePaginatorIndex(this.currentIndex);
-    this.chunkedImages = this.chunkArray(this.chunkRange);
+    if (this.isAnimating) return;
+    this.isAnimating = true;
+
+    setTimeout(() => {
+      this.currentIndex--;
+      if (this.currentIndex < 0) {
+        this.currentIndex = this.chunkedImages.length - 1;
+      }
+      this.paginatorIndex = this.calculatePaginatorIndex(this.currentIndex);
+
+      this.chunkedImages = this.chunkArray(this.chunkRange);
+
+      setTimeout(() => {
+        this.isAnimating = false;
+      }, 300);
+    }, 300);
   }
 
   calculatePaginatorIndex(currentPage: number) {
@@ -109,12 +125,12 @@ export class PortfolioComponent implements OnInit {
     let startPage = Math.max(0, currentPage - Math.floor(pagesToShow / 2));
     let endPage = startPage + pagesToShow - 1;
 
-    if (endPage > totalChunks) {
+    if (endPage >= totalChunks) {
       endPage = totalChunks - 1;
       startPage = Math.max(0, endPage - (pagesToShow - 1));
     }
 
-    if (startPage > 1) {
+    if (startPage >= 1) {
       this.firstPage = true;
     } else {
       this.firstPage = false;
@@ -135,6 +151,7 @@ export class PortfolioComponent implements OnInit {
   }
   lastChunk() {
     this.currentIndex = this.chunkedImages.length - 1;
+    console.log(this.chunkedImages.length - 1);
     this.paginatorIndex = this.calculatePaginatorIndex(this.currentIndex);
   }
 

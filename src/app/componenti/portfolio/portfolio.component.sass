@@ -87,37 +87,38 @@
             justify-content: center
             align-items: center
             cursor: pointer
-            color: white
             background-color: $brown
             padding: 14px 10px 0 10px
             aspect-ratio: 1/1
             border-radius: 999px
+            box-shadow: 0px 0px 0px 0px $cyan
+            transition: box-shadow 0.3s ease-in-out
             &:hover
                 border: 2px solid $cyan
                 color: $cyan
-                box-shadow: 0px 0px 7px 0px $cyan
+                box-shadow: 0px 0px 0px 10px $cyan
                 transition: 0.3s ease-in-out
                 #prev-slide,
                 #next-slide
                     transition: 0.3s ease-in-out
                     color: $cyan
-            #prev-slide
-                color: $brownDark
             #next-slide
                 transform: scaleX(-1)
-                color: $brownDark
             #prev-slide,
             #next-slide
-                width: 70px
-                height: 70px
-                font-size: 50px
+                width: 60px
+                height: 60px
+                font-size: 45px
+                transition: 0.3s ease-in-out
+                color: $brownDark
+
         .chunk
             display: flex
             flex-direction: row
             align-items: center
             justify-content: center
             flex-wrap: wrap
-            padding: 0 0 20px 0
+            padding: 20px 0 20px 0
             row-gap: 80px
             .image
                 margin: 0
@@ -151,6 +152,7 @@
                 opacity: 0!important
                 transition: opacity 0.3s ease-out!important
         .fade-in
+            transition: transform 0.3s ease-in-out
             opacity: 1
             transition: opacity 0.3s ease-in
             .image
@@ -189,7 +191,7 @@
                     height: 30px
                     font-size: 20px
             .chunk
-                margin-top: 50px
+                margin-top: 0px
                 .image
                     .opera
                         box-shadow: 0px 0px 10px 5px black
