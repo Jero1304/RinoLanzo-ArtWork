@@ -17,7 +17,10 @@
         <i id="prev-slide" class="fa-solid fa-paintbrush"></i>
       </div>
 
-      <div class="chunk col-sm-9 col-lg-10">
+      <div
+        class="chunk fade-in col-sm-9 col-lg-10"
+        [ngClass]="this.isAnimating == true ? 'fade-out' : ''"
+      >
         <div
           class="image col-sm-4 col-md-4 col-lg-4"
           *ngFor="
@@ -52,7 +55,9 @@
       >
         {{ i + 1 + paginatorIndex }}
       </li>
-      <li class="last-page" *ngIf="lastPage" (click)="lastChunk()">{{chunkedImages.length}}th</li>
+      <li class="last-page" *ngIf="lastPage" (click)="lastChunk()">
+        {{ chunkedImages.length }}th
+      </li>
     </ul>
 
     <div id="opera-dettaglio">

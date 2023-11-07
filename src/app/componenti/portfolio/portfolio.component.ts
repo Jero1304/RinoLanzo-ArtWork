@@ -6,7 +6,7 @@ import { ImageService } from 'src/app/service/image.service';
   templateUrl: './portfolio.component.html',
   styleUrls: ['./portfolio.component.sass'],
 })
-export class PortfolioComponent {
+export class PortfolioComponent implements OnInit {
   images: any[] = [];
   chunkedImages: any;
   currentIndex = 0;
@@ -17,6 +17,7 @@ export class PortfolioComponent {
   firstPage: boolean = false;
   lastPage: boolean = true;
   scrollDownActive: boolean = false;
+  isAnimating: boolean = false;
 
   constructor(private imageService: ImageService) {}
 
@@ -43,9 +44,21 @@ export class PortfolioComponent {
   }
 
   changePage(currentPage: number) {
-    this.currentIndex = currentPage;
-    console.log(this.currentIndex);
     this.paginatorIndex = this.calculatePaginatorIndex(currentPage);
+    this.fadeOut(currentPage);
+  }
+
+  fadeOut(currentPage: number) {
+    if (this.isAnimating) return;
+    this.isAnimating = true;
+    setTimeout(() => {
+      this.currentIndex = currentPage;
+      this.chunkedImages = this.chunkArray(this.chunkRange);
+
+      setTimeout(() => {
+        this.isAnimating = false;
+      }, 300);
+    }, 300);
   }
 
   paginatorSlice() {
@@ -70,8 +83,10 @@ export class PortfolioComponent {
 
   nextPaginator() {
     this.currentIndex++;
+    // this.fadeOut(this.currentIndex);
     if (this.currentIndex >= this.chunkedImages.length) {
       this.currentIndex = 0;
+      // this.fadeOut(this.currentIndex);
     }
     this.paginatorIndex = this.calculatePaginatorIndex(this.currentIndex);
     this.chunkedImages = this.chunkArray(this.chunkRange);
@@ -79,8 +94,10 @@ export class PortfolioComponent {
 
   previusPaginator() {
     this.currentIndex--;
+    // this.fadeOut(this.currentIndex);
     if (this.currentIndex < 0) {
       this.currentIndex = this.chunkedImages.length - 1;
+      // this.fadeOut(this.currentIndex);
     }
     this.paginatorIndex = this.calculatePaginatorIndex(this.currentIndex);
     this.chunkedImages = this.chunkArray(this.chunkRange);
@@ -92,17 +109,17 @@ export class PortfolioComponent {
     let startPage = Math.max(0, currentPage - Math.floor(pagesToShow / 2));
     let endPage = startPage + pagesToShow - 1;
 
-    if (endPage >= totalChunks) {
+    if (endPage > totalChunks) {
       endPage = totalChunks - 1;
       startPage = Math.max(0, endPage - (pagesToShow - 1));
     }
 
-    if (startPage >= 1) {
+    if (startPage > 1) {
       this.firstPage = true;
     } else {
       this.firstPage = false;
     }
-    
+
     if (this.chunkedImages.length - 1 > endPage) {
       this.lastPage = true;
     } else {

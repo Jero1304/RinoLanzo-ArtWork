@@ -111,7 +111,6 @@
                 width: 70px
                 height: 70px
                 font-size: 50px
-
         .chunk
             display: flex
             flex-direction: row
@@ -141,6 +140,26 @@
                     transition: transform 0.3s ease-in-out
                     transition: 0.3s ease-in-out
                     box-shadow: 0px 0px 15px 15px $yellow
+        .fade-out
+            opacity: 1!important
+            transition: opacity 0.3s ease-out!important
+            .image
+                margin: 0
+                padding: 0
+                display: flex
+                justify-content: center
+                opacity: 0!important
+                transition: opacity 0.3s ease-out!important
+        .fade-in
+            opacity: 1
+            transition: opacity 0.3s ease-in
+            .image
+                margin: 0
+                padding: 0
+                display: flex
+                justify-content: center
+                opacity: 1
+                transition: opacity 0.3s ease-in
 
     @media screen and ( max-width: 992px )
         .image-slider
