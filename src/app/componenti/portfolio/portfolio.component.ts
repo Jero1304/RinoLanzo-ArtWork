@@ -12,7 +12,9 @@ export class PortfolioComponent implements OnInit {
   currentIndex = 0;
   chunkRange = 3;
   operaDefault = false;
-  selectedOpera: any = null;
+  selectedOpera: any = '';
+  operaPosition: any = {};
+  operaSelectionError: boolean;
   paginatorIndex = 0;
   firstPage: boolean = false;
   lastPage: boolean = true;
@@ -36,11 +38,34 @@ export class PortfolioComponent implements OnInit {
     return results;
   }
 
-  currentOpera(imageChunk: any) {
+  currentOpera(imageChunk: any, index: any) {
     const operaPath = imageChunk.path;
     this.imageService.setSelectedOpera(operaPath);
     this.operaDefault = true;
     this.selectedOpera = operaPath;
+    this.operaPosition = {
+      image: this.selectedOpera,
+      positionChunk: index,
+      position: this.currentIndex,
+    };
+    
+  }
+  lastOpera() {
+    if (this.selectedOpera == '' || this.selectedOpera == null) {
+      this.operaSelectionError = true;
+      console.log(this.selectedOpera);
+    }
+    if (this.selectedOpera != '') {
+      this.operaSelectionError = false;
+      if (this.operaPosition.position >= 0) {
+        this.changePage(this.operaPosition.position);
+      }
+      console.log(this.selectedOpera);
+    }
+  }
+
+  isSelectedOpera() {
+    this.selectedOpera = '';
   }
 
   changePage(currentPage: number) {

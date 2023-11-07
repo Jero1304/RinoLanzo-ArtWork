@@ -37,6 +37,7 @@
             display: flex
             align-items: center
             justify-content: center
+            transition: 0.3s ease-in
             &:hover
                 transition: 0.3s ease-in
                 background-color: $cyanDark
@@ -54,11 +55,36 @@
         .last-page
             background-color: $brownDark
             padding: 0 20px
-            // border: 2px solid $brownDark
             &:hover
-                background-color: $cyan
+                background-color: $cyanDark
                 border: none
                 color: white
+    .btn-last-opera
+        display: flex
+        justify-content: center
+        align-items: center
+        text-align: center
+        flex-direction: column
+        margin: 0 auto 20px auto
+        .btn-reset
+            background-color: $cyan
+            font-size: 20px
+            color:$cyanDark
+            font-weight: bold
+            border: none
+            border-radius: 999px
+            padding: 10px 20px
+            transition: 0.3s ease-in
+            &:hover
+                background-color: $cyanDark
+                color: white
+                transition: 0.3s ease-in
+        .btn-reset-error
+            color: $newRed
+            margin: 8px 
+            padding: 4px
+            background-color: #ddd
+            // max-height: 50px
     .image-slider
         display: flex
         flex-direction: row
@@ -169,9 +195,11 @@
                 opacity: 1
                 transition: opacity 0.3s ease-in
 
+    #opera-dettaglio
+
     @media screen and ( max-width: 992px )
         .image-slider
-            height: 200px
+            height: 250px
             .scroll-down-button
             #prev-slide,
             #next-slide
@@ -184,7 +212,7 @@
                     .opera
                         border: 7px groove $brownDark
                         box-shadow: 0px 0px 15px 8px black
-                        max-width: 100px
+                        max-width: 120px
                         &:hover
 
     @media screen and ( max-width: 768px  )
@@ -208,13 +236,13 @@
 
         @media screen and ( max-width:576px  )
             .image-slider
-                height: 600px
+                height: 700px
                 .chunk
                     flex-direction: column
                     .image
                         width: calc( (100% - 30px)/3 )
                         .opera
-                            max-width: 100px
+                            max-width: 130px
 
 @media screen and ( max-width:376px  )
     .portfolio
@@ -237,12 +265,12 @@
                 align-items: center
                 justify-content: center
         .image-slider
-            height: 500px
+            height: 600px
             .chunk
                 .image
                     margin: 0
                     .opera
                         border: 4px groove $brownDark
                         box-shadow: 0px 0px 8px 2px black
-                        max-width: 80px
+                        max-width: 100px
                         &:hover
