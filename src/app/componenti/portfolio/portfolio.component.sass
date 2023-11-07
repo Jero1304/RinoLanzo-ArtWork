@@ -1,8 +1,15 @@
 @import '../../../styles'
 .portfolio
     min-height: 50vh
+    .btn
+        border-radius: 100%
+        font-size: 30px
+        aspect-ratio: 1/1
+        i
+            height: 30px
+            width: 30px
     .title-portfolio
-        margin: 20px 0 50px 0
+        margin: 20px 0 30px 0
         display: flex
         justify-content: center
         .title
@@ -11,15 +18,71 @@
             text-transform: uppercase
             color: white
             background-color: $newRed
+    .paginator
+        display: flex
+        flex-direction: row
+        justify-content: center
+        align-items: center
+        gap: 10px
+        padding: 0
+        li
+            list-style: none
+            border-radius: 999px
+            background-color: $brown
+            color: white
+            width: 30px
+            height: 30px
+            cursor: pointer
+            text-align: center
+            display: flex
+            align-items: center
+            justify-content: center
+            &:hover
+                transition: 0.3s ease-in
+                background-color: $cyanDark
+                border: none
+        .paginator-selected
+            background-color: $cyan
+            border: none
+            color: white
+            transition: 0.3s ease-in
+            &:hover
+                background-color: $cyan
+                border: none
+                color: white
+        .first-page,
+        .last-page
+            background-color: $brownDark
+            padding: 0 20px
+            // border: 2px solid $brownDark
+            &:hover
+                background-color: $cyan
+                border: none
+                color: white
     .image-slider
         display: flex
         flex-direction: row
         align-items: center
-        justify-content: center
+        justify-content: space-between
         margin: 20px 0 30px 0
-        height: 700px
+        height: 400px
+        position: none
+        .scroll-down-button
+            background-color: $cyan
+            color: white
+            position: fixed
+            bottom: 30px
+            right: 30px
+            border-radius: 100%
+            border: 2px solid #4a75aa
+            font-size: 20px
+            aspect-ratio: 1/1
+            i
+                height: 25px
+                width: 30px
         .prev,
         .next
+            border: 2px solid $brownDark
             display: flex
             justify-content: center
             align-items: center
@@ -30,13 +93,19 @@
             aspect-ratio: 1/1
             border-radius: 999px
             &:hover
-                color: $brownDark
-                transition: color 0.3s ease-in-out
+                border: 2px solid $cyan
+                color: $cyan
+                box-shadow: 0px 0px 7px 0px $cyan
+                transition: 0.3s ease-in-out
+                #prev-slide,
+                #next-slide
+                    transition: 0.3s ease-in-out
+                    color: $cyan
             #prev-slide
-                color: currentColor
+                color: $brownDark
             #next-slide
                 transform: scaleX(-1)
-                color: currentColor
+                color: $brownDark
             #prev-slide,
             #next-slide
                 width: 70px
@@ -51,9 +120,6 @@
             flex-wrap: wrap
             padding: 0 0 20px 0
             row-gap: 80px
-            .loader
-                height: 100px
-                width: 100px
             .image
                 margin: 0
                 padding: 0
@@ -68,16 +134,18 @@
                     cursor: pointer
                     &:hover
                         transition: 0.3s ease-in-out
-                        box-shadow: 0px 0px 15px 15px $yellow
+                        box-shadow: 0px 0px 15px 10px $yellow
 
                 .selected
                     transform: translateY(-10%)
                     transition: transform 0.3s ease-in-out
                     transition: 0.3s ease-in-out
                     box-shadow: 0px 0px 15px 15px $yellow
+
     @media screen and ( max-width: 992px )
         .image-slider
-            height: 400px
+            height: 200px
+            .scroll-down-button
             #prev-slide,
             #next-slide
                 width: 50px
@@ -94,7 +162,6 @@
 
     @media screen and ( max-width: 768px  )
         .image-slider
-            height: 300px
             .prev,
             .next
                 #prev-slide,
@@ -107,28 +174,48 @@
                 .image
                     .opera
                         box-shadow: 0px 0px 10px 5px black
-                        max-width: 60px
+                        max-width: 80px
                         &:hover
                             transition: 0.3s ease-in-out
                             box-shadow: 0px 0px 8px 8px $yellow
 
-    @media screen and ( max-width:576px  )
-        .chunk
-            .image
-                width: calc( (100% - 30px)/3 )
-                .opera
-                    max-width: 40px
+        @media screen and ( max-width:576px  )
+            .image-slider
+                height: 600px
+                .chunk
+                    flex-direction: column
+                    .image
+                        width: calc( (100% - 30px)/3 )
+                        .opera
+                            max-width: 100px
 
 @media screen and ( max-width:376px  )
     .portfolio
         min-height: 50vh
+        .title-portfolio
+            margin-bottom: 30px
+        .paginator
+            display: flex
+            flex-direction: row
+            justify-content: center
+            align-items: center
+            gap: 10px
+            li
+                list-style: none
+                width: 30px
+                height: 30px
+                cursor: pointer
+                text-align: center
+                display: flex
+                align-items: center
+                justify-content: center
         .image-slider
-            height: 100px
+            height: 500px
             .chunk
                 .image
                     margin: 0
                     .opera
                         border: 4px groove $brownDark
                         box-shadow: 0px 0px 8px 2px black
-                        max-width: 40px
+                        max-width: 80px
                         &:hover
