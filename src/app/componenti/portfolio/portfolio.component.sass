@@ -69,7 +69,7 @@
         .btn-reset
             background-color: $cyan
             font-size: 20px
-            color:$cyanDark
+            color: $cyanDark
             font-weight: bold
             border: none
             border-radius: 999px
@@ -81,7 +81,7 @@
                 transition: 0.3s ease-in
         .btn-reset-error
             color: $newRed
-            margin: 8px 
+            margin: 8px
             padding: 4px
             background-color: #ddd
             // max-height: 50px
@@ -94,15 +94,20 @@
         height: 400px
         position: none
         .scroll-down-button
+            opacity: 0.4
+            transition: 0.3s ease-in-out
             background-color: $cyan
             color: white
             position: fixed
-            bottom: 30px
-            right: 30px
+            bottom: 50%
+            right: 10px
             border-radius: 100%
             border: 2px solid #4a75aa
             font-size: 20px
             aspect-ratio: 1/1
+            &:hover
+                opacity: 1
+                transition: 0.3s ease-in
             i
                 height: 25px
                 width: 30px
