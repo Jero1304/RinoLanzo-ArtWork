@@ -74,7 +74,7 @@ export class PortfolioComponent implements OnInit {
       }, 300);
     }, 300);
 
-    console.log(this.isAnimatingLastOpera);
+    // console.log(this.isAnimatingLastOpera);
   }
 
   isSelectedOpera() {
@@ -193,7 +193,7 @@ export class PortfolioComponent implements OnInit {
   }
   lastChunk() {
     this.currentIndex = this.chunkedImages.length - 1;
-    console.log(this.chunkedImages.length - 1);
+    // console.log(this.chunkedImages.length - 1);
     this.paginatorIndex = this.calculatePaginatorIndex(this.currentIndex);
   }
 
