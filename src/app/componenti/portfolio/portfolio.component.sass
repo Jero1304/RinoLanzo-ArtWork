@@ -37,6 +37,7 @@
             display: flex
             align-items: center
             justify-content: center
+            transition: 0.3s ease-in
             &:hover
                 transition: 0.3s ease-in
                 background-color: $cyanDark
@@ -54,11 +55,36 @@
         .last-page
             background-color: $brownDark
             padding: 0 20px
-            // border: 2px solid $brownDark
             &:hover
-                background-color: $cyan
+                background-color: $cyanDark
                 border: none
                 color: white
+    .btn-last-opera
+        display: flex
+        justify-content: center
+        align-items: center
+        text-align: center
+        flex-direction: column
+        margin: 0 auto 20px auto
+        .btn-reset
+            background-color: $cyan
+            font-size: 20px
+            color: $cyanDark
+            font-weight: bold
+            border: none
+            border-radius: 999px
+            padding: 10px 20px
+            transition: 0.3s ease-in
+            &:hover
+                background-color: $cyanDark
+                color: white
+                transition: 0.3s ease-in
+        .btn-reset-error
+            color: $newRed
+            margin: 8px
+            padding: 4px
+            background-color: #ddd
+            // max-height: 50px
     .image-slider
         display: flex
         flex-direction: row
@@ -68,15 +94,20 @@
         height: 400px
         position: none
         .scroll-down-button
+            opacity: 0.4
+            transition: 0.3s ease-in-out
             background-color: $cyan
             color: white
             position: fixed
-            bottom: 30px
-            right: 30px
+            bottom: 50%
+            right: 10px
             border-radius: 100%
             border: 2px solid #4a75aa
             font-size: 20px
             aspect-ratio: 1/1
+            &:hover
+                opacity: 1
+                transition: 0.3s ease-in
             i
                 height: 25px
                 width: 30px
@@ -87,30 +118,30 @@
             justify-content: center
             align-items: center
             cursor: pointer
-            color: white
             background-color: $brown
             padding: 14px 10px 0 10px
             aspect-ratio: 1/1
             border-radius: 999px
+            box-shadow: 0px 0px 0px 0px $cyan
+            transition: box-shadow 0.3s ease-in-out
             &:hover
                 border: 2px solid $cyan
                 color: $cyan
-                box-shadow: 0px 0px 7px 0px $cyan
+                box-shadow: 0px 0px 0px 10px $cyan
                 transition: 0.3s ease-in-out
                 #prev-slide,
                 #next-slide
                     transition: 0.3s ease-in-out
                     color: $cyan
-            #prev-slide
-                color: $brownDark
             #next-slide
                 transform: scaleX(-1)
-                color: $brownDark
             #prev-slide,
             #next-slide
-                width: 70px
-                height: 70px
-                font-size: 50px
+                width: 60px
+                height: 60px
+                font-size: 45px
+                transition: 0.3s ease-in-out
+                color: $brownDark
 
         .chunk
             display: flex
@@ -118,7 +149,7 @@
             align-items: center
             justify-content: center
             flex-wrap: wrap
-            padding: 0 0 20px 0
+            padding: 20px 0 20px 0
             row-gap: 80px
             .image
                 margin: 0
@@ -132,6 +163,8 @@
                     max-width: 200px
                     margin: 0 0 10px 0
                     cursor: pointer
+                    transform: translateY(0%)
+                    transition: transform 0.3s ease-in-out
                     &:hover
                         transition: 0.3s ease-in-out
                         box-shadow: 0px 0px 15px 10px $yellow
@@ -140,11 +173,38 @@
                     transform: translateY(-10%)
                     transition: transform 0.3s ease-in-out
                     transition: 0.3s ease-in-out
-                    box-shadow: 0px 0px 15px 15px $yellow
+                    box-shadow: 0px 0px 10px 15px $yellow
+                    border-radius: 4px
+                    &:hover
+                        transition: 0.3s ease-in-out
+                        box-shadow: 0px 0px 5px 15px #ffee00
+        .fade-out
+            opacity: 1!important
+            transition: opacity 0.3s ease-out!important
+            .image
+                margin: 0
+                padding: 0
+                display: flex
+                justify-content: center
+                opacity: 0!important
+                transition: opacity 0.3s ease-out!important
+        .fade-in
+            transition: transform 0.3s ease-in-out
+            opacity: 1
+            transition: opacity 0.3s ease-in
+            .image
+                margin: 0
+                padding: 0
+                display: flex
+                justify-content: center
+                opacity: 1
+                transition: opacity 0.3s ease-in
+
+    #opera-dettaglio
 
     @media screen and ( max-width: 992px )
         .image-slider
-            height: 200px
+            height: 250px
             .scroll-down-button
             #prev-slide,
             #next-slide
@@ -157,7 +217,7 @@
                     .opera
                         border: 7px groove $brownDark
                         box-shadow: 0px 0px 15px 8px black
-                        max-width: 100px
+                        max-width: 120px
                         &:hover
 
     @media screen and ( max-width: 768px  )
@@ -170,7 +230,7 @@
                     height: 30px
                     font-size: 20px
             .chunk
-                margin-top: 50px
+                margin-top: 0px
                 .image
                     .opera
                         box-shadow: 0px 0px 10px 5px black
@@ -181,13 +241,13 @@
 
         @media screen and ( max-width:576px  )
             .image-slider
-                height: 600px
+                height: 700px
                 .chunk
                     flex-direction: column
                     .image
                         width: calc( (100% - 30px)/3 )
                         .opera
-                            max-width: 100px
+                            max-width: 130px
 
 @media screen and ( max-width:376px  )
     .portfolio
@@ -210,12 +270,12 @@
                 align-items: center
                 justify-content: center
         .image-slider
-            height: 500px
+            height: 600px
             .chunk
                 .image
                     margin: 0
                     .opera
                         border: 4px groove $brownDark
                         box-shadow: 0px 0px 8px 2px black
-                        max-width: 80px
+                        max-width: 100px
                         &:hover

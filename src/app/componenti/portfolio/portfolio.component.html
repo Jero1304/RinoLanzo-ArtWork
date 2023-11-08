@@ -17,7 +17,10 @@
         <i id="prev-slide" class="fa-solid fa-paintbrush"></i>
       </div>
 
-      <div class="chunk col-sm-9 col-lg-10">
+      <div
+        class="chunk fade-in col-sm-9 col-lg-10"
+        [ngClass]="this.isAnimating == true ? 'fade-out' : ''"
+      >
         <div
           class="image col-sm-4 col-md-4 col-lg-4"
           *ngFor="
@@ -28,9 +31,10 @@
           <img
             class="opera"
             [src]="'../../../assets/images/' + chunk.path"
-            alt="Image"
-            (click)="currentOpera(chunk)"
+            alt="{{ chunk.path }}"
+            (click)="currentOpera(chunk, imageIndex)"
             (click)="scrollDownActive = true"
+            (click)="operaSelectionError = false"
             [class.selected]="selectedOpera === chunk.path"
           />
         </div>
@@ -52,18 +56,25 @@
       >
         {{ i + 1 + paginatorIndex }}
       </li>
-      <li class="last-page" *ngIf="lastPage" (click)="lastChunk()">{{chunkedImages.length}}th</li>
+      <li class="last-page" *ngIf="lastPage" (click)="lastChunk()">
+        {{ chunkedImages.length }}th
+      </li>
     </ul>
 
-    <div id="opera-dettaglio">
+    <div class="btn-last-opera">
+      <button class="btn-reset" (click)="lastOpera()">Ultima Opera</button>
+      <p *ngIf="operaSelectionError" class="btn-reset-error">*Seleziona Opera</p>
+    </div>
+
+    <div id="opera-dettaglio" *ngIf="operaDefault">
       <button
-        class="btn btn-danger btn"
-        *ngIf="operaDefault"
+        class="btn btn-danger"
+        (click)="isSelectedOpera()"
         (click)="operaDefault = false"
       >
-        <i class="fa-solid fa-xmark"> </i>
+        <i class="fa-solid fa-xmark"></i>
       </button>
-      <app-opera-dettaglio *ngIf="operaDefault"></app-opera-dettaglio>
+      <app-opera-dettaglio></app-opera-dettaglio>
     </div>
   </div>
 </div>
