@@ -1,12 +1,10 @@
 @import '../../../styles'
-.scrolled
-    transition: background-color 1s !important
-    background-color: rgb(81, 132, 195)!important
 .navbar
     position: fixed
     z-index: 999
     width: 100%
-    background-color: rgba(81, 132, 195, 0.6)
+    background-color: rgba(81, 132, 195, 1)
+    transition: background-color 1s !important
 
     & *
         color: white
@@ -15,3 +13,13 @@
 
 .nav-link
     cursor: pointer
+    padding: 5px
+    border-radius: 50%
+    transition: 0.3s ease-in-out
+.disabled
+    color: $cyanDark!important
+    font-weight: bold
+    background-color: white
+    box-shadow: 0px 0px 15px 0px white
+    border-radius: 50%
+    transition: 0.3s ease-in-out

@@ -1,8 +1,12 @@
 @import '../../../styles'
-ul,ol,li
+a
+    text-decoration: none
+    color: currentColor
+ul, ol, li
     list-style: none
     padding: 0
     margin: 0
+
 .contact-footer
     background-color: $brown
     padding: 30px 20px
@@ -11,23 +15,103 @@ ul,ol,li
         color: white
         display: flex
         justify-content: center
-        align-content: center
+        align-items: center
         padding-bottom: 20px
 
     .contact
         display: flex
         flex-direction: row
         justify-content: space-between
-        align-items: center
+        align-items: flex-start
         color: white
-        li
-            padding: 10px 0
+
+        .contact-item
+            display: flex
+            // flex-direction: column
+            align-items: center
+            justify-content: space-around
             cursor: pointer
-    @media screen and ( max-width:771px )
+            width: 100%
+            margin: 14px 0
+            .contact-card-zoom
+                transform: scale(1.2)
+                transition: 0.3s ease-in-out
+            .contact-card
+                display: flex
+                flex-direction: column
+                align-items: center
+                justify-content: center
+                background-color: $cyan
+                border: 5px groove $cyanDark
+                max-width: 200px
+                padding: 10px
+                max-height: 130px
+                font-size: 16px
+                text-align: center
+                transition: 0.3s ease-in-out
+                .contact-icon
+                    background-color: $cyan
+                    font-size: 40px
+                    margin-bottom: 6px
+                    transition: 0.3s ease-in-out
+                    border-radius: 100%
+                .mail
+                    font-size: 20px
+                    color: white
+                    transition: 0.3s ease-in-out
+                    background-color: $yellow
+                    border-radius: 100%
+                    transition: 0.3s ease-in-out
+                    padding: 8px
+                .instagram
+                    padding: 5px
+                    font-size: 30px
+                    border-radius: 100%
+                    background: #f09433
+                    background: -moz-linear-gradient(45deg, #f09433 0%, #e6683c 25%, #dc2743 50%, #cc2366 75%, #bc1888 100%)
+                    background: -webkit-linear-gradient(45deg, #f09433 0%,#e6683c 25%,#dc2743 50%,#cc2366 75%,#bc1888 100%)
+                    background: linear-gradient(45deg, #f09433 0%,#e6683c 25%,#dc2743 50%,#cc2366 75%,#bc1888 100%)
+                    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#f09433', endColorstr='#bc1888',GradientType=1 )
+                    transition: 0.3s ease-in-out
+                .location
+                    font-size: 30px
+                    height: 40px
+                    width: 40px
+                    color: red
+                    padding: 5px
+                    border-radius: 999px
+                    background-color: $cyanDark
+                    transition: 0.3s ease-in-out
+                .clicca-mail
+                    font-weight: bold
+                    background-color: $yellow
+                    padding: 5px
+                    border-radius: 10px
+                    color: white
+                    transition: 0.3s ease-in-out
+                .clicca-insta
+                    font-weight: bold
+                    background: #f09433
+                    background: -moz-linear-gradient(45deg, #f09433 0%, #e6683c 25%, #dc2743 50%, #cc2366 75%, #bc1888 100%)
+                    background: -webkit-linear-gradient(45deg, #f09433 0%,#e6683c 25%,#dc2743 50%,#cc2366 75%,#bc1888 100%)
+                    background: linear-gradient(45deg, #f09433 0%,#e6683c 25%,#dc2743 50%,#cc2366 75%,#bc1888 100%)
+                    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#f09433', endColorstr='#bc1888',GradientType=1 )
+                    padding: 5px
+                    border-radius: 10px
+                    color: white
+                    transition: 0.3s ease-in-out
+                .clicca-loca
+                    font-weight: bold
+                    background-color: red
+                    padding: 5px
+                    border-radius: 10px
+                    color: white
+                    transition: 0.3s ease-in-out
+
+    @media screen and (max-width: 576px)
         .contact
             display: flex
             flex-direction: column
             justify-content: center
             align-items: center
             color: white
-

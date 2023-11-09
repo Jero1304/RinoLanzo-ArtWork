@@ -20,6 +20,9 @@ export class PortfolioComponent implements OnInit {
   lastPage: boolean = true;
   scrollDownActive: boolean = false;
   isAnimating: boolean = false;
+  isAnimatingArrowLeft: boolean = false;
+  isAnimatingArrowRight: boolean = false;
+  isAnimatingLastOpera: boolean = false;
 
   constructor(private imageService: ImageService) {}
 
@@ -48,20 +51,30 @@ export class PortfolioComponent implements OnInit {
       positionChunk: index,
       position: this.currentIndex,
     };
-    
   }
   lastOpera() {
+    this.isAnimatingLastOpera = true;
+
     if (this.selectedOpera == '' || this.selectedOpera == null) {
       this.operaSelectionError = true;
-      console.log(this.selectedOpera);
+      this.isAnimatingLastOpera = false;
+      this.isAnimating = false;
+      // console.log(this.selectedOpera);
     }
-    if (this.selectedOpera != '') {
-      this.operaSelectionError = false;
-      if (this.operaPosition.position >= 0) {
-        this.changePage(this.operaPosition.position);
+
+    setTimeout(() => {
+      if (this.selectedOpera != '') {
+        this.operaSelectionError = false;
+        if (this.operaPosition.position >= 0) {
+          this.changePage(this.operaPosition.position);
+        }
       }
-      console.log(this.selectedOpera);
-    }
+      setTimeout(() => {
+        this.isAnimatingLastOpera = false;
+      }, 300);
+    }, 300);
+
+    // console.log(this.isAnimatingLastOpera);
   }
 
   isSelectedOpera() {
@@ -109,6 +122,7 @@ export class PortfolioComponent implements OnInit {
   nextPaginator() {
     if (this.isAnimating) return;
     this.isAnimating = true;
+    this.isAnimatingArrowRight = true;
 
     setTimeout(() => {
       this.currentIndex++;
@@ -121,6 +135,7 @@ export class PortfolioComponent implements OnInit {
 
       setTimeout(() => {
         this.isAnimating = false;
+        this.isAnimatingArrowRight = false;
       }, 300);
     }, 300);
   }
@@ -128,6 +143,7 @@ export class PortfolioComponent implements OnInit {
   previusPaginator() {
     if (this.isAnimating) return;
     this.isAnimating = true;
+    this.isAnimatingArrowLeft = true;
 
     setTimeout(() => {
       this.currentIndex--;
@@ -140,6 +156,7 @@ export class PortfolioComponent implements OnInit {
 
       setTimeout(() => {
         this.isAnimating = false;
+        this.isAnimatingArrowLeft = false;
       }, 300);
     }, 300);
   }
@@ -176,7 +193,7 @@ export class PortfolioComponent implements OnInit {
   }
   lastChunk() {
     this.currentIndex = this.chunkedImages.length - 1;
-    console.log(this.chunkedImages.length - 1);
+    // console.log(this.chunkedImages.length - 1);
     this.paginatorIndex = this.calculatePaginatorIndex(this.currentIndex);
   }
 

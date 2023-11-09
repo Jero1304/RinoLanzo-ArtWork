@@ -13,7 +13,11 @@
       >
         <i class="fa-solid fa-arrow-down"></i>
       </button>
-      <div class="prev" (click)="previusPaginator()">
+      <div
+        class="prev"
+        [ngClass]="this.isAnimatingArrowLeft == true ? 'next-prev-btn' : ''"
+        (click)="previusPaginator()"
+      >
         <i id="prev-slide" class="fa-solid fa-paintbrush"></i>
       </div>
 
@@ -37,10 +41,15 @@
             (click)="operaSelectionError = false"
             [class.selected]="selectedOpera === chunk.path"
           />
+          <!-- [class.opera]="selectedOpera !== chunk.path" -->
         </div>
       </div>
 
-      <div class="next" (click)="nextPaginator()">
+      <div
+        class="next"
+        (click)="nextPaginator()"
+        [ngClass]="this.isAnimatingArrowRight == true ? 'next-prev-btn' : ''"
+      >
         <i id="next-slide" class="fa-solid fa-paintbrush"></i>
       </div>
     </div>
@@ -62,8 +71,10 @@
     </ul>
 
     <div class="btn-last-opera">
-      <button class="btn-reset" (click)="lastOpera()">Ultima Opera</button>
-      <p *ngIf="operaSelectionError" class="btn-reset-error">*Seleziona Opera</p>
+      <button class="btn-reset" [class.reset]="isAnimatingLastOpera" (click)="lastOpera()">Ultima Opera</button>
+      <p *ngIf="operaSelectionError" class="btn-reset-error">
+        *Seleziona Opera
+      </p>
     </div>
 
     <div id="opera-dettaglio" *ngIf="operaDefault">

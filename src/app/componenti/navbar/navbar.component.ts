@@ -1,4 +1,4 @@
-import { Component, HostListener } from '@angular/core';
+import { Component } from '@angular/core';
 
 @Component({
   selector: 'app-navbar',
@@ -6,16 +6,13 @@ import { Component, HostListener } from '@angular/core';
   styleUrls: ['./navbar.component.sass'],
 })
 export class NavbarComponent {
-  isScrolled = false;
+  homepage: boolean = true;
+  curriculum: boolean = false;
+  portfolio: boolean = false;
 
-  @HostListener('window:scroll', [])
-  onWindowScroll() {
-    if (window.scrollY > 50) {
-      this.isScrolled = true;
-      console.log(this.isScrolled);
-    } else {
-      this.isScrolled = false;
-      console.log(this.isScrolled);
-    }
+  disabledItem(itemName: string) {
+    this.homepage = itemName === 'homepage';
+    this.curriculum = itemName === 'curriculum';
+    this.portfolio = itemName === 'portfolio';
   }
 }

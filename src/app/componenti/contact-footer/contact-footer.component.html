@@ -1,26 +1,60 @@
 <div class="contact-footer">
   <div class="container">
-    <!-- <h3 class="contact-title">Contatti:</h3> -->
-    
+    <h3 class="contact-title">Contatti:</h3>
+
     <ul class="contact">
-      <li>
-        <span>
-          <i class="fa-regular fa-envelope-open"></i>
-        </span>
-        Email: To.rino11@yahoo.it
+      <li
+        class="contact-item"
+      >
+        <div class="contact-card" [ngClass]="mail == true ? 'contact-card-zoom' : ''" (click)="currentItem('mail')">
+          <span>
+            <i
+              [ngClass]="mail ? 'mail' : ''"
+              class="fa-regular fa-envelope-open contact-icon"
+            ></i>
+          </span>
+          <a class="clicca-mail" *ngIf="mail" href="mailto:To.rino11@yahoo.it">
+            To.rino11<span>&#64;</span>yahoo.it
+          </a>
+        </div>
       </li>
-      
-      <li>
-        <span>
-          <i class="fa-brands fa-instagram "></i>
-        </span>
-        Instagram: Savas_art
+
+      <li class="contact-item">
+        <div class="contact-card" [ngClass]="instagram == true ? 'contact-card-zoom' : ''" (click)="currentItem('instagram')">
+          <span>
+            <i
+              [ngClass]="instagram ? 'instagram' : ''"
+              class="fa-brands fa-instagram contact-icon"
+            ></i>
+          </span>
+          <a
+            class="clicca-insta"
+            *ngIf="instagram"
+            href="https://instagram.com/to.rino11?igshid=ZzN2ZnB4bGJmaWZ6"
+            target="_blank"
+          >
+            <span>&#64;</span>to.rino11
+          </a>
+        </div>
       </li>
-      <li>
-        <span>
-          <i class="fa-solid fa-location-dot"></i>
-        </span>
-        Citta': Torino (TO)
+
+      <li class="contact-item">
+        <div class="contact-card" [ngClass]="location == true ? 'contact-card-zoom' : ''" (click)="currentItem('location')">
+          <span>
+            <i
+              [ngClass]="location ? 'location' : ''"
+              class="fa-solid fa-location-dot contact-icon"
+            ></i>
+          </span>
+          <a
+            class="clicca-loca"
+            *ngIf="location"
+            href="https://maps.app.goo.gl/waowKDayXcLwKwxs8"
+            target="_blank"
+          >
+            Torino (TO)
+          </a>
+        </div>
       </li>
     </ul>
   </div>

@@ -75,10 +75,11 @@
             border-radius: 999px
             padding: 10px 20px
             transition: 0.3s ease-in
-            &:hover
-                background-color: $cyanDark
-                color: white
-                transition: 0.3s ease-in
+        .reset
+            background-color: $cyanDark
+            color: white
+            transition: 0.3s ease-in
+            
         .btn-reset-error
             color: $newRed
             margin: 8px
@@ -114,6 +115,8 @@
         .prev,
         .next
             border: 2px solid $brownDark
+            box-shadow: 0px 0px 0px 0px $cyan
+            transition: box-shadow 0.3s ease-in-out
             display: flex
             justify-content: center
             align-items: center
@@ -122,17 +125,6 @@
             padding: 14px 10px 0 10px
             aspect-ratio: 1/1
             border-radius: 999px
-            box-shadow: 0px 0px 0px 0px $cyan
-            transition: box-shadow 0.3s ease-in-out
-            &:hover
-                border: 2px solid $cyan
-                color: $cyan
-                box-shadow: 0px 0px 0px 10px $cyan
-                transition: 0.3s ease-in-out
-                #prev-slide,
-                #next-slide
-                    transition: 0.3s ease-in-out
-                    color: $cyan
             #next-slide
                 transform: scaleX(-1)
             #prev-slide,
@@ -142,7 +134,15 @@
                 font-size: 45px
                 transition: 0.3s ease-in-out
                 color: $brownDark
-
+        .next-prev-btn
+            border: 2px solid $cyan!important
+            color: $cyan!important
+            box-shadow: 0px 0px 0px 10px $cyan!important
+            transition: 0.3s ease-in-out!important
+            #prev-slide,
+            #next-slide
+                transition: 0.3s ease-in-out
+                color: $cyan
         .chunk
             display: flex
             flex-direction: row
@@ -173,11 +173,11 @@
                     transform: translateY(-10%)
                     transition: transform 0.3s ease-in-out
                     transition: 0.3s ease-in-out
-                    box-shadow: 0px 0px 10px 15px $yellow
+                    box-shadow: 0px 0px 0px 10px $yellow!important
                     border-radius: 4px
-                    &:hover
-                        transition: 0.3s ease-in-out
-                        box-shadow: 0px 0px 5px 15px #ffee00
+                    // &:hover
+                    //     transition: 0.3s ease-in-out
+                    //     box-shadow: 0px 0px 5px 15px #ffee00
         .fade-out
             opacity: 1!important
             transition: opacity 0.3s ease-out!important
