@@ -34,7 +34,10 @@ ul, ol, li
             width: 100%
             margin: 14px 0
             .contact-card-zoom
-                transform: scale(1.2)
+                transform: scale(1.2) translateY(-10px)
+                border: 5px solid $cyanDark!important
+                opacity: 1!important
+                margin-top: 20px
                 transition: 0.3s ease-in-out
             .contact-card
                 display: flex
@@ -42,31 +45,32 @@ ul, ol, li
                 align-items: center
                 justify-content: center
                 background-color: $cyan
-                border: 5px groove $cyanDark
+                border: 5px dashed $cyanDark
                 max-width: 200px
                 padding: 10px
                 max-height: 130px
                 font-size: 16px
                 text-align: center
+                border-radius: 20px
+                opacity: 0.5
                 transition: 0.3s ease-in-out
                 .contact-icon
                     background-color: $cyan
                     font-size: 40px
                     margin-bottom: 6px
+                    border-radius: 10px
                     transition: 0.3s ease-in-out
-                    border-radius: 100%
                 .mail
-                    font-size: 20px
+                    font-size: 28px
                     color: white
-                    transition: 0.3s ease-in-out
                     background-color: $yellow
-                    border-radius: 100%
+                    border-radius: 10px
+                    padding: 5px
                     transition: 0.3s ease-in-out
-                    padding: 8px
                 .instagram
                     padding: 5px
                     font-size: 30px
-                    border-radius: 100%
+                    border-radius: 10px
                     background: #f09433
                     background: -moz-linear-gradient(45deg, #f09433 0%, #e6683c 25%, #dc2743 50%, #cc2366 75%, #bc1888 100%)
                     background: -webkit-linear-gradient(45deg, #f09433 0%,#e6683c 25%,#dc2743 50%,#cc2366 75%,#bc1888 100%)
@@ -79,7 +83,7 @@ ul, ol, li
                     width: 40px
                     color: red
                     padding: 5px
-                    border-radius: 999px
+                    border-radius: 10px
                     background-color: $cyanDark
                     transition: 0.3s ease-in-out
                 .clicca-mail
