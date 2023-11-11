@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { DarkModeService } from 'src/app/service/dark-mode.service';
 import { ImageService } from 'src/app/service/image.service';
 
 @Component({
@@ -24,11 +25,25 @@ export class PortfolioComponent implements OnInit {
   isAnimatingArrowRight: boolean = false;
   isAnimatingLastOpera: boolean = false;
 
-  constructor(private imageService: ImageService) {}
+  darkMode: boolean = false;
+
+  constructor(
+    private imageService: ImageService,
+    private darkModeService: DarkModeService
+  ) {}
 
   ngOnInit(): void {
     this.images = this.imageService.getImage();
     this.chunkedImages = this.chunkArray(this.chunkRange);
+    this.getDark();
+  }
+
+  getDark() {
+    this.darkModeService.darkMode$.subscribe((value) => {
+      this.darkMode = value;
+      // console.log('portfolio Dark Mode:', this.darkMode);
+    });
+    return this.darkMode;
   }
 
   chunkArray(chunkSize: number): any[][] {
@@ -53,7 +68,7 @@ export class PortfolioComponent implements OnInit {
     };
   }
   lastOpera() {
-    this.isAnimatingLastOpera = true;
+    this.isAnimatingLastOpera = false;
 
     if (this.selectedOpera == '' || this.selectedOpera == null) {
       this.operaSelectionError = true;
@@ -68,9 +83,14 @@ export class PortfolioComponent implements OnInit {
         if (this.operaPosition.position >= 0) {
           this.changePage(this.operaPosition.position);
         }
+        if (this.operaPosition.position == this.currentIndex) {
+          this.isAnimatingLastOpera = false;
+          this.isAnimating = false;
+        }
       }
       setTimeout(() => {
         this.isAnimatingLastOpera = false;
+        this.isAnimating = false;
       }, 300);
     }, 300);
 
@@ -188,13 +208,30 @@ export class PortfolioComponent implements OnInit {
   }
 
   firstChunk() {
-    this.currentIndex = 0;
-    this.paginatorIndex = this.calculatePaginatorIndex(0);
+    this.isAnimating = true;
+    setTimeout(() => {
+      this.currentIndex = 0;
+      this.paginatorIndex = this.calculatePaginatorIndex(0);
+      this.chunkedImages = this.chunkArray(this.chunkRange);
+      this.isAnimating = true;
+
+      setTimeout(() => {
+        this.isAnimating = false;
+      }, 300);
+    }, 300);
   }
   lastChunk() {
-    this.currentIndex = this.chunkedImages.length - 1;
-    // console.log(this.chunkedImages.length - 1);
-    this.paginatorIndex = this.calculatePaginatorIndex(this.currentIndex);
+    this.isAnimating = true;
+    setTimeout(() => {
+      this.currentIndex = this.chunkedImages.length - 1;
+      this.paginatorIndex = this.calculatePaginatorIndex(this.currentIndex);
+      this.chunkedImages = this.chunkArray(this.chunkRange);
+      this.isAnimating = true;
+
+      setTimeout(() => {
+        this.isAnimating = false;
+      }, 300);
+    }, 300);
   }
 
   scrollDownToOperaDettaglio() {

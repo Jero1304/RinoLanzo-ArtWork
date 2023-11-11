@@ -1,8 +1,26 @@
 <div class="cv">
   <div class="container">
-    <h2 class="cv-title">
-      <span>il mio cv</span>
-    </h2>
+    <div class="cv-title">
+      <img
+        class="divider"
+        [src]="
+          getDark()
+            ? '../../../assets/images/divider-white.png'
+            : '../../../assets/images/divider-black.png'
+        "
+        alt=""
+      />
+      <h2 class="title">il mio cv</h2>
+      <img
+        class="divider"
+        [src]="
+          getDark()
+            ? '../../../assets/images/divider-white.png'
+            : '../../../assets/images/divider-black.png'
+        "
+        alt=""
+      />
+    </div>
 
     <div class="cv-content">
       <div class="cv-aside-content col-xs-12 col-md-5 col-xl-3">

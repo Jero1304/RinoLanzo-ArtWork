@@ -1,11 +1,41 @@
-
-/* Importing Bootstrap SCSS file. */
 @import 'bootstrap/scss/bootstrap'
+@import url('https://fonts.googleapis.com/css2?family=Caveat:wght@600&display=swap')
 
-    
 $brown: #c39051
 $newRed: rgba(219,65,57,255)
 $cyan: #5184c3
 $cyanDark: #114d97
 $yellow: #f0ea63
 $brownDark: #7a4708c5
+$darkBG: #12171d
+
+body
+    font-family: 'Caveat', cursive!important
+    transition: 0.3s ease-in-out
+    .light-mode
+        background-color: white
+        color: black
+        background: white
+        transition: 0.3s ease-in-out
+    .dark-mode
+        background-color: $darkBG
+        transition: 0.3s ease-in-out
+        p,
+        .cv-name
+            color: white
+        .title
+            color: white!important
+        .image-slider
+            .prev,
+            .next
+                border-color: white!important
+                background-color: white!important
+                #prev-slide,
+                #next-slide
+                    width: 60px
+                    height: 60px
+                    font-size: 45px
+                    transition: 0.3s ease-in-out
+                    color: $darkBG!important
+                    transition: 0.3s ease-in-out
+            
