@@ -1,10 +1,12 @@
-<header>
-  <app-navbar></app-navbar>
-  <app-big-hero></app-big-hero>
-</header>
-<main>
-  <router-outlet></router-outlet>
-</main>
-<footer>
-  <app-contact-footer></app-contact-footer>
-</footer>
+<div [class.dark-mode]="darkMode ? 'dark-mode' : ''">
+  <header>
+    <app-navbar></app-navbar>
+    <app-big-hero></app-big-hero>
+  </header>
+  <main>
+    <router-outlet></router-outlet>
+  </main>
+  <footer>
+    <app-contact-footer></app-contact-footer>
+  </footer>
+</div>

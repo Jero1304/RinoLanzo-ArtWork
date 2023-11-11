@@ -1,8 +1,25 @@
 <div class="portfolio">
   <div class="container">
     <div class="title-portfolio">
+      <img
+        class="divider"
+        [src]="
+          getDark()
+            ? '../../../assets/images/divider-white.png'
+            : '../../../assets/images/divider-black.png'
+        "
+        alt=""
+      />
       <h2 class="title">Portfolio</h2>
-      <img class="divider" src="../../../assets/images/divider.png" alt="">
+      <img
+        class="divider"
+        [src]="
+          getDark()
+            ? '../../../assets/images/divider-white.png'
+            : '../../../assets/images/divider-black.png'
+        "
+        alt=""
+      />
     </div>
 
     <div class="image-slider">
@@ -72,7 +89,13 @@
     </ul>
 
     <div class="btn-last-opera">
-      <button class="btn-reset" [class.reset]="isAnimatingLastOpera" (click)="lastOpera()">Ultima Opera</button>
+      <button
+        class="btn-reset"
+        [class.reset]="isAnimatingLastOpera"
+        (click)="lastOpera()"
+      >
+        Ultima Opera
+      </button>
       <p *ngIf="operaSelectionError" class="btn-reset-error">
         *Seleziona Opera
       </p>

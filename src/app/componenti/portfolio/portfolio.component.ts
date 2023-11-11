@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { DarkModeService } from 'src/app/service/dark-mode.service';
 import { ImageService } from 'src/app/service/image.service';
 
 @Component({
@@ -23,12 +24,26 @@ export class PortfolioComponent implements OnInit {
   isAnimatingArrowLeft: boolean = false;
   isAnimatingArrowRight: boolean = false;
   isAnimatingLastOpera: boolean = false;
+  
+  darkMode: boolean = false;
 
-  constructor(private imageService: ImageService) {}
+  constructor(
+    private imageService: ImageService,
+    private darkModeService: DarkModeService
+  ) {}
 
   ngOnInit(): void {
     this.images = this.imageService.getImage();
     this.chunkedImages = this.chunkArray(this.chunkRange);
+    this.getDark()
+  }
+
+  getDark(){
+    this.darkModeService.darkMode$.subscribe((value) => {
+      this.darkMode = value;
+      console.log('portfolio Dark Mode:', this.darkMode);
+    });
+    return this.darkMode
   }
 
   chunkArray(chunkSize: number): any[][] {
