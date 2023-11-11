@@ -15,7 +15,7 @@ export class AppComponent implements OnInit {
   ngOnInit() {
     this.darkModeService.darkMode$.subscribe((value) => {
       this.darkMode = value;
-      console.log('AppComponent Dark Mode:', this.darkMode);
+      // console.log('AppComponent Dark Mode:', this.darkMode);
     });
   }
 }

@@ -10,7 +10,7 @@ export class DarkModeService {
 
   setDarkMode(value: boolean) {
     this.darkModeSubject.next(value);
-    console.log('Dark Mode Service:', this.darkModeSubject.value);
+    // console.log('Dark Mode Service:', this.darkModeSubject.value);
   }
 
   getDarkMode(): boolean {

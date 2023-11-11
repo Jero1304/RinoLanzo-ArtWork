@@ -1,4 +1,4 @@
-<div [class.dark-mode]="darkMode ? 'dark-mode' : ''">
+<div [ngClass]="darkMode == true ? 'dark-mode' : 'light-mode'">
   <header>
     <app-navbar></app-navbar>
     <app-big-hero></app-big-hero>

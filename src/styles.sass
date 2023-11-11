@@ -11,9 +11,12 @@ $darkBG: #12171d
 
 body
     font-family: 'Caveat', cursive!important
-    background-color: white
-    color: black
     transition: 0.3s ease-in-out
+    .light-mode
+        background-color: white
+        color: black
+        background: white
+        transition: 0.3s ease-in-out
     .dark-mode
         background-color: $darkBG
         transition: 0.3s ease-in-out
@@ -22,3 +25,17 @@ body
             color: white
         .title
             color: white!important
+        .image-slider
+            .prev,
+            .next
+                border-color: white!important
+                background-color: white!important
+                #prev-slide,
+                #next-slide
+                    width: 60px
+                    height: 60px
+                    font-size: 45px
+                    transition: 0.3s ease-in-out
+                    color: $darkBG!important
+                    transition: 0.3s ease-in-out
+            

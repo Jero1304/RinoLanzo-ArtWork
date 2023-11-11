@@ -87,7 +87,7 @@
             background-color: $cyanDark
             color: white
             transition: 0.3s ease-in
-            
+
         .btn-reset-error
             color: $newRed
             margin: 8px
@@ -122,7 +122,7 @@
                 width: 30px
         .prev,
         .next
-            border: 2px solid $brownDark
+            border: 2px solid $brown
             box-shadow: 0px 0px 0px 0px $cyan
             transition: box-shadow 0.3s ease-in-out
             display: flex
@@ -133,28 +133,30 @@
             padding: 14px 10px 0 10px
             aspect-ratio: 1/1
             border-radius: 999px
+            transition: 0.3s ease-in-out
             #next-slide
                 transform: scaleX(-1)
+                transition: 0.3s ease-in-out
             #prev-slide,
             #next-slide
                 width: 60px
                 height: 60px
                 font-size: 45px
                 transition: 0.3s ease-in-out
-                color: $brownDark
+                color: white
+                transition: 0.3s ease-in-out
         .next-prev-btn
-            border: 2px solid $cyan!important
-            color: $cyan!important
+            border: 2px solid $cyan
             box-shadow: 0px 0px 0px 10px $cyan!important
             transition: 0.3s ease-in-out!important
             #prev-slide,
             #next-slide
+                color: $cyan!important
                 transition: 0.3s ease-in-out
-                color: $cyan
         .chunk
             display: flex
             flex-direction: row
-            align-items: center
+            align-items: flex-start
             justify-content: center
             flex-wrap: wrap
             padding: 20px 0 20px 0
@@ -167,7 +169,8 @@
                 .opera
                     border: 13px groove $brownDark
                     box-shadow: 0px 0px 15px 8px black
-                    aspect-ratio: 2/3
+                    // aspect-ratio: 2/3
+                    min-width: 150px
                     max-width: 200px
                     margin: 0 0 10px 0
                     cursor: pointer
@@ -225,6 +228,7 @@
                     .opera
                         border: 7px groove $brownDark
                         box-shadow: 0px 0px 15px 8px black
+                        min-width: 100px
                         max-width: 120px
                         &:hover
 
@@ -252,6 +256,7 @@
                 height: 700px
                 .chunk
                     flex-direction: column
+                    align-items: center
                     .image
                         width: calc( (100% - 30px)/3 )
                         .opera
