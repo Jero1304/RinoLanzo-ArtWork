@@ -1,12 +1,14 @@
 <div class="contact-footer">
   <div class="container">
-    <!-- <h3 class="contact-title">Contatti:</h3> -->
-
+    <h3 class="contact-title">Contattami</h3>
     <ul class="contact">
-      <li
-        class="contact-item"
-      >
-        <div class="contact-card" [ngClass]="mail == true ? 'contact-card-zoom' : ''" (click)="currentItem('mail')">
+      <li class="contact-item">
+        <div
+          class="contact-card"
+          [ngClass]="mail == true ? 'contact-card-zoom' : ''"
+          (click)="currentItem('mail')"
+        >
+          <p *ngIf="!mail">Scrivimi una mail!</p>
           <span>
             <i
               [ngClass]="mail ? 'mail' : ''"
@@ -16,11 +18,18 @@
           <a class="clicca-mail" *ngIf="mail" href="mailto:To.rino11@yahoo.it">
             To.rino11<span>&#64;</span>yahoo.it
           </a>
+          <p *ngIf="!mail" class="contact-item-title">E-mail</p>
+          <i *ngIf="mail" class="fa-regular fa-hand-pointer hand-click"></i>
         </div>
       </li>
 
       <li class="contact-item">
-        <div class="contact-card" [ngClass]="instagram == true ? 'contact-card-zoom' : ''" (click)="currentItem('instagram')">
+        <div
+          class="contact-card"
+          [ngClass]="instagram == true ? 'contact-card-zoom' : ''"
+          (click)="currentItem('instagram')"
+        >
+          <p *ngIf="!instagram" >Guarda il mio profilo!</p>
           <span>
             <i
               [ngClass]="instagram ? 'instagram' : ''"
@@ -35,11 +44,18 @@
           >
             <span>&#64;</span>to.rino11
           </a>
+          <p *ngIf="!instagram" class="contact-item-title">Instagram</p>
+          <i *ngIf="instagram" class="fa-regular fa-hand-pointer hand-click"></i>
         </div>
       </li>
 
       <li class="contact-item">
-        <div class="contact-card" [ngClass]="location == true ? 'contact-card-zoom' : ''" (click)="currentItem('location')">
+        <div
+          class="contact-card"
+          [ngClass]="location == true ? 'contact-card-zoom' : ''"
+          (click)="currentItem('location')"
+        >
+          <p *ngIf="!location">Vieni a trovarmi!</p>
           <span>
             <i
               [ngClass]="location ? 'location' : ''"
@@ -54,6 +70,8 @@
           >
             Torino (TO)
           </a>
+          <p *ngIf="!location" class="contact-item-title">Map</p>
+          <i *ngIf="location" class="fa-regular fa-hand-pointer hand-click"></i>
         </div>
       </li>
     </ul>

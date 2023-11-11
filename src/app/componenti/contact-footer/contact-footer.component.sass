@@ -24,7 +24,8 @@ ul, ol, li
         justify-content: space-between
         align-items: flex-start
         color: white
-
+        width: 70%
+        margin: 0 auto
         .contact-item
             display: flex
             // flex-direction: column
@@ -32,35 +33,42 @@ ul, ol, li
             justify-content: space-around
             cursor: pointer
             width: 100%
-            margin: 14px 0
+            // margin: 14px 0
             .contact-card-zoom
                 transform: scale(1.2) translateY(-10px)
-                border: 5px solid $cyanDark!important
-                opacity: 1!important
+                // opacity: 1!important
                 margin-top: 20px
+                position: relative
                 transition: 0.3s ease-in-out
             .contact-card
                 display: flex
                 flex-direction: column
                 align-items: center
                 justify-content: center
-                background-color: $cyan
-                border: 5px dashed $cyanDark
+                // background-color: $cyan
                 max-width: 200px
                 padding: 10px
                 max-height: 130px
                 font-size: 16px
                 text-align: center
-                border-radius: 20px
-                opacity: 0.5
+                // border-radius: 20px
                 transition: 0.3s ease-in-out
-                .contact-icon
-                    background-color: $cyan
-                    font-size: 40px
+                .contact-item-title
                     margin-bottom: 6px
+                .hand-click
+                    position: absolute
+                    right: 3px
+                    bottom: -3px
+                    font-size: 18px
+                    border-radius: 999px
+                    padding: 4px
+                .contact-icon
+                    // background-color: $cyan
+                    font-size: 40px
                     border-radius: 10px
                     transition: 0.3s ease-in-out
                 .mail
+                    margin-bottom: 6px
                     font-size: 28px
                     color: white
                     background-color: $yellow
@@ -68,6 +76,7 @@ ul, ol, li
                     padding: 5px
                     transition: 0.3s ease-in-out
                 .instagram
+                    margin-bottom: 6px
                     padding: 5px
                     font-size: 30px
                     border-radius: 10px
@@ -78,6 +87,7 @@ ul, ol, li
                     filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#f09433', endColorstr='#bc1888',GradientType=1 )
                     transition: 0.3s ease-in-out
                 .location
+                    margin-bottom: 6px
                     font-size: 30px
                     height: 40px
                     width: 40px
@@ -111,6 +121,9 @@ ul, ol, li
                     border-radius: 10px
                     color: white
                     transition: 0.3s ease-in-out
+    @media screen and (max-width: 768px)
+        .contact
+            width: 100%
 
     @media screen and (max-width: 576px)
         .contact
@@ -119,3 +132,8 @@ ul, ol, li
             justify-content: center
             align-items: center
             color: white
+            .contact-item
+                // margin-top: 20px
+                .contact-card
+                    // width: 70%
+                    height: 100%
