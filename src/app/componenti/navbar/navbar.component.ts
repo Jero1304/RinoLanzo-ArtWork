@@ -1,6 +1,5 @@
-// navbar.component.ts
-
 import { Component } from '@angular/core';
+import { Router, NavigationEnd } from '@angular/router';
 import { DarkModeService } from 'src/app/service/dark-mode.service';
 
 @Component({
@@ -14,13 +13,29 @@ export class NavbarComponent {
   portfolio: boolean = false;
 
   darkMode: boolean = false;
-  
-  constructor(private darkModeService: DarkModeService) {}
+
+  constructor(
+    private router: Router,
+    private darkModeService: DarkModeService
+  ) {
+    // Ascolta gli eventi di navigazione per aggiornare lo stato dei pulsanti di navigazione
+    this.router.events.subscribe((event) => {
+      if (event instanceof NavigationEnd) {
+        this.updateDisabledState();
+      }
+    });
+  }
 
   disabledItem(itemName: string) {
-    this.homepage = itemName === 'homepage';
-    this.curriculum = itemName === 'curriculum';
-    this.portfolio = itemName === 'portfolio';
+    this.router.navigate([itemName]);
+  }
+
+  private updateDisabledState() {
+    const currentRoute = this.router.url;
+
+    this.homepage = currentRoute === '/homepage';
+    this.curriculum = currentRoute === '/curriculum-vitae';
+    this.portfolio = currentRoute === '/portfolio';
   }
 
   toggleDarkMode() {
