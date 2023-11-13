@@ -1,6 +1,11 @@
 <nav class="navbar navbar-expand-lg">
   <div class="container">
-    <a class="navbar-brand" [routerLink]="['/homepage']">Rino Lanzo</a>
+    <a
+      class="navbar-brand"
+      [routerLink]="['/homepage']"
+      (click)="disabledItem('homepage')"
+      >Rino Lanzo</a
+    >
 
     <button
       class="navbar-toggler"
@@ -48,10 +53,16 @@
             id="flexSwitchCheckDefault"
             (click)="toggleDarkMode()"
           />
-          <label *ngIf="darkMode == true" class="form-check-label" for="flexSwitchCheckDefault"
+          <label
+            *ngIf="darkMode == true"
+            class="form-check-label"
+            for="flexSwitchCheckDefault"
             >Dark-mode
           </label>
-          <label *ngIf="darkMode == false" class="form-check-label" for="flexSwitchCheckDefault"
+          <label
+            *ngIf="darkMode == false"
+            class="form-check-label"
+            for="flexSwitchCheckDefault"
             >Light-mode
           </label>
         </div>
