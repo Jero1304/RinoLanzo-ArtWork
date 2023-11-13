@@ -14,7 +14,7 @@ export class OperaDettaglioComponent implements OnInit{
   ngOnInit() {
     this.imageService.getSelectedOpera().subscribe((operaPath) => {
       this.selectedOpera = operaPath;
-      console.log(this.selectedOpera);
+      // console.log(this.selectedOpera);
     });
   }
 }

@@ -13,7 +13,6 @@ export class AboutComponent {
   getDark() {
     this.darkModeService.darkMode$.subscribe((value) => {
       this.darkMode = value;
-      console.log('portfolio Dark Mode:', this.darkMode);
     });
     return this.darkMode;
   }
