@@ -1,4 +1,4 @@
-<nav class="navbar navbar-expand-lg">
+<nav class="navbar navbar-expand-lg" [ngClass]="darkMode == true ? 'bg-dark-mode' : 'bg-light-mode'">
   <div class="container">
     <a
       class="navbar-brand"
@@ -48,6 +48,7 @@
         <div class="form-check form-switch d-flex align-items-center m-0">
           <input
             class="form-check-input"
+            [ngClass]="darkMode == true ? 'dark-mode' : 'light-mode'"
             type="checkbox"
             role="switch"
             id="flexSwitchCheckDefault"

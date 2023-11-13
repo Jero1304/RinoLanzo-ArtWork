@@ -1,4 +1,5 @@
 import { Component, HostListener } from '@angular/core';
+import { DarkModeService } from 'src/app/service/dark-mode.service';
 
 @Component({
   selector: 'app-contact-footer',
@@ -9,11 +10,20 @@ export class ContactFooterComponent {
   mail: boolean = false;
   instagram: boolean = false;
   location: boolean = false;
+  darkMode: boolean = false;
+  constructor(private darkModeService: DarkModeService) {}
 
   currentItem(itemName: string) {
     this.mail = itemName === 'mail';
     this.instagram = itemName === 'instagram';
     this.location = itemName === 'location';
+  }
+
+  getDark() {
+    this.darkModeService.darkMode$.subscribe((value) => {
+      this.darkMode = value;
+    });
+    return this.darkMode;
   }
 
   @HostListener('document:click', ['$event'])
