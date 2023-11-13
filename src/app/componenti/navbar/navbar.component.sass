@@ -3,13 +3,17 @@
     position: fixed
     z-index: 999
     width: 100%
-    background-color: rgba(81, 132, 195, 1)
-    transition: background-color 1s !important
-
     & *
         color: white
     .navbar-brand
         font-size: 30px
+.bg-dark-mode
+    background-color: $cyanDark
+    transition: 0.3s ease-in-out
+
+.bg-light-mode
+    background-color: $cyan
+    transition: 0.3s ease-in-out
 
 .nav-link
     cursor: pointer
@@ -26,3 +30,14 @@
 .form-check
     .form-check-label
         margin-bottom: -3px!important
+    .form-check-input
+        box-shadow: none!important
+        transition: 0.3s ease-in-out
+    .dark-mode
+        background-color: $darkBG!important
+        border-color: white!important
+        transition: 0.3s ease-in-out
+    .light-mode
+        border-color: $cyanDark!important
+        background-color: white!important
+        transition: 0.3s ease-in-out
