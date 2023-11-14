@@ -68,6 +68,22 @@
                 background-color: rgba(237, 230, 164, 0.7 )
                 .job-info
                     margin-bottom: 0
+                .photo
+                    display: flex
+                    justify-content: center
+                    align-items: center
+                    flex-direction: row
+                    flex-wrap: wrap
+                    gap: 20px
+                    padding-top: 20px
+                    .photo-thumb
+                        border: 10px groove $brown
+                        max-width: 300px
+
+                    @media screen and ( max-width: 370px )
+                        .photo-thumb
+                            border: 10px groove $brown
+                            max-width: 250px
     @media screen and ( max-width: 768px )
         .cv-content
             display: flex
