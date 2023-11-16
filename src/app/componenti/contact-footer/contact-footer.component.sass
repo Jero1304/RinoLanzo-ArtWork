@@ -27,11 +27,12 @@ ul, ol, li
 
     .contact
         display: flex
-        flex-direction: row
+        // flex-direction: row
         justify-content: space-between
         align-items: flex-start
         color: white
         width: 70%
+        flex-wrap: wrap
         margin: 0 auto
         .contact-item
             display: flex
@@ -39,7 +40,12 @@ ul, ol, li
             align-items: center
             justify-content: space-around
             cursor: pointer
-            width: 100%
+            width: 40%
+            padding: 20px
+            margin: 0 10px
+            height: 150px
+            // border: 3px solid white
+            border-radius: 20px
             // margin: 14px 0
             .contact-card-zoom
                 transform: scale(1.2) translateY(-10px)
@@ -60,8 +66,9 @@ ul, ol, li
                 text-align: center
                 font-size: 24px
                 // border-radius: 20px
-                transition: 0.3s ease-in-out
+                margin-bottom: 30px
                 font-weight: bold
+                transition: 0.3s ease-in-out
                 .contact-item-title
                     margin-bottom: 6px
                     font-size: 20px
@@ -159,13 +166,21 @@ ul, ol, li
 
     @media screen and (max-width: 576px)
         .contact
+            width: 100%
             display: flex
             flex-direction: column
             justify-content: center
             align-items: center
             color: white
             .contact-item
-                // margin-top: 20px
+                border-bottom: 3px solid white
+                border-radius: 0
+                height: 200px
+                padding: 10px
+                margin: 10px 0
+                &:last-child
+                    border-bottom: none
                 .contact-card
                     // width: 70%
                     height: 100%
+                    padding: 20px 0 0 0
