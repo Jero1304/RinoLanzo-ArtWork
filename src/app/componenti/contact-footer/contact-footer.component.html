@@ -2,11 +2,11 @@
   <div class="container">
     <h3 class="contact-title">Contattami</h3>
     <ul class="contact">
-      <li class="contact-item">
+      <li class="contact-item" (click)="currentItem('mail')">
         <div
           class="contact-card"
           [ngClass]="mail == true ? 'contact-card-zoom' : ''"
-          (click)="currentItem('mail')"
+          
         >
           <p *ngIf="!mail">Scrivimi una mail!</p>
           <span>
