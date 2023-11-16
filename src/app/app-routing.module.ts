@@ -8,7 +8,7 @@ const routes: Routes = [
   { path: '', pathMatch: 'full', redirectTo: '/homepage' },
   { path: 'homepage', component: AboutComponent },
   { path: 'curriculum-vitae', component: CurriculumComponent },
-  { path: 'portfolio', component: PortfolioComponent },
+  { path: 'galleria', component: PortfolioComponent },
 ];
 
 @NgModule({
