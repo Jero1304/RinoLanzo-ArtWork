@@ -8,10 +8,11 @@ ul, ol, li
     margin: 0
 
 .bg-light-mode
-    background-color: $brown
+    // background-color: #8b2d35d8
+    background-color: #69a804b6
     transition: 0.3s ease-in-out
 .bg-dark-mode
-    background-color: rgb(119, 95, 50)
+    background-color: $greenDark
     transition: 0.3s ease-in-out
 .contact-footer
     padding: 30px 20px
@@ -21,24 +22,30 @@ ul, ol, li
         display: flex
         justify-content: center
         align-items: center
-        padding-bottom: 20px
+        margin-bottom: 40px
         font-size: 40px
 
     .contact
         display: flex
-        flex-direction: row
-        justify-content: space-between
+        // flex-direction: row
+        justify-content: center
         align-items: flex-start
         color: white
         width: 70%
+        flex-wrap: wrap
         margin: 0 auto
         .contact-item
             display: flex
             // flex-direction: column
             align-items: center
-            justify-content: space-around
+            justify-content: center
             cursor: pointer
-            width: 100%
+            width: 40%
+            padding: 20px
+            margin: 0 10px 20px 10px
+            height: 150px
+            // border: 3px solid white
+            border-radius: 20px
             // margin: 14px 0
             .contact-card-zoom
                 transform: scale(1.2) translateY(-10px)
@@ -59,8 +66,9 @@ ul, ol, li
                 text-align: center
                 font-size: 24px
                 // border-radius: 20px
-                transition: 0.3s ease-in-out
+                margin-bottom: 30px
                 font-weight: bold
+                transition: 0.3s ease-in-out
                 .contact-item-title
                     margin-bottom: 6px
                     font-size: 20px
@@ -106,6 +114,16 @@ ul, ol, li
                     border-radius: 10px
                     background-color: $cyanDark
                     transition: 0.3s ease-in-out
+                .phone
+                    margin-bottom: 6px
+                    font-size: 30px
+                    height: 40px
+                    width: 40px
+                    color: white
+                    padding: 5px
+                    border-radius: 10px
+                    background-color: $green
+                    transition: 0.3s ease-in-out
                 .clicca-mail
                     font-size: 20px
                     font-weight: bold
@@ -134,19 +152,35 @@ ul, ol, li
                     border-radius: 10px
                     color: white
                     transition: 0.3s ease-in-out
+                .clicca-phone
+                    font-size: 20px
+                    font-weight: bold
+                    background-color: $green
+                    padding: 5px
+                    border-radius: 10px
+                    color: white
+                    transition: 0.3s ease-in-out
     @media screen and (max-width: 768px)
         .contact
             width: 100%
 
     @media screen and (max-width: 576px)
         .contact
+            width: 100%
             display: flex
             flex-direction: column
             justify-content: center
             align-items: center
             color: white
             .contact-item
-                // margin-top: 20px
+                border-bottom: 3px solid white
+                border-radius: 0
+                height: 200px
+                padding: 10px
+                margin: 10px 0
+                &:last-child
+                    border-bottom: none
                 .contact-card
                     // width: 70%
                     height: 100%
+                    padding: 20px 0 0 0

@@ -35,7 +35,7 @@ export class NavbarComponent {
 
     this.homepage = currentRoute === '/homepage';
     this.curriculum = currentRoute === '/curriculum-vitae';
-    this.portfolio = currentRoute === '/portfolio';
+    this.portfolio = currentRoute === '/galleria';
   }
 
   toggleDarkMode() {

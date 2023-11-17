@@ -10,6 +10,7 @@ export class ContactFooterComponent {
   mail: boolean = false;
   instagram: boolean = false;
   location: boolean = false;
+  phone: boolean = false;
   darkMode: boolean = false;
   constructor(private darkModeService: DarkModeService) {}
 
@@ -17,6 +18,7 @@ export class ContactFooterComponent {
     this.mail = itemName === 'mail';
     this.instagram = itemName === 'instagram';
     this.location = itemName === 'location';
+    this.phone = itemName === 'phone';
   }
 
   getDark() {
@@ -36,6 +38,7 @@ export class ContactFooterComponent {
       this.mail = false;
       this.instagram = false;
       this.location = false;
+      this.phone = false;
     }
   }
 }

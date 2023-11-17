@@ -2,11 +2,11 @@
   <div class="container">
     <h3 class="contact-title">Contattami</h3>
     <ul class="contact">
-      <li class="contact-item">
+      <li class="contact-item" (click)="currentItem('mail')">
         <div
           class="contact-card"
           [ngClass]="mail == true ? 'contact-card-zoom' : ''"
-          (click)="currentItem('mail')"
+          
         >
           <p *ngIf="!mail">Scrivimi una mail!</p>
           <span>
@@ -29,7 +29,7 @@
           [ngClass]="instagram == true ? 'contact-card-zoom' : ''"
           (click)="currentItem('instagram')"
         >
-          <p *ngIf="!instagram" >Guarda il mio profilo!</p>
+          <p *ngIf="!instagram" >Il mio profilo!</p>
           <span>
             <i
               [ngClass]="instagram ? 'instagram' : ''"
@@ -72,6 +72,32 @@
           </a>
           <p *ngIf="!location" class="contact-item-title">Map</p>
           <i *ngIf="location" class="fa-regular fa-hand-pointer hand-click"></i>
+        </div>
+      </li>
+
+      <li class="contact-item">
+        <div
+          class="contact-card"
+          [ngClass]="phone == true ? 'contact-card-zoom' : ''"
+          (click)="currentItem('phone')"
+        >
+          <p *ngIf="!phone">Chiama!</p>
+          <span>
+            <i
+              [ngClass]="phone ? 'phone' : ''"
+              class="fa-solid fa-phone contact-icon"
+            ></i>
+          </span>
+          <a
+            class="clicca-phone"
+            *ngIf="phone"
+            href="tel:+390123456789"
+            target="_blank"
+          >
+            +39 351 580 6484
+          </a>
+          <p *ngIf="!phone" class="contact-item-title">Telefono</p>
+          <i *ngIf="phone" class="fa-regular fa-hand-pointer hand-click"></i>
         </div>
       </li>
     </ul>
